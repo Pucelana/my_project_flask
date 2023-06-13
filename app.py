@@ -10,4 +10,4 @@ app.config.from_object(env_config)
 
 @app.route( "/" ) 
 def  index (): 
-  return  "¡Hola mundo!, ¿Qué tal estaís todos?"
+  return  render_template('index.html')

@@ -10,4 +10,12 @@ app.config.from_object(env_config)
 
 @app.route( "/" ) 
 def  index (): 
-  return  render_template('index.html')
+  return  render_template('sitio/index.html')
+
+@app.route('/registro_admin/')
+def registro_admin():
+    return render_template('sitio/registro_admin.html')
+
+@app.route('/registro_usu/')
+def registro_usu():
+    return render_template('sitio/registro_usu.html')

@@ -15,8 +15,25 @@
 <body>
   <nav class="nav justify-content-start  ">
     <a class="nav-link active" href="#" aria-current="page">Home</a>
-    <a class="nav-link" href="#">Registro</a>
-    <a class="nav-link disabled" href="#">Login</a>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Registro
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/registro_admin/">Administrador</a></li>
+        <li><a class="dropdown-item" href="/registro_usu/">Usuario</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Login
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Administrador</a></li>
+        <li><a class="dropdown-item" href="#">Usuario</a></li>
+      </ul>
+    </li>
+    
   </nav>
   <header>
     <h1 class="text-center">Bienvenid@s a mi primera web en Flask</h1>

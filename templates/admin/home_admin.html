@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <!-- CSS -->
+  <link href="{{ url_for('static', filename='css/estilo.css') }}" rel="stylesheet" type="text/css">   
+</head>
+<body>
+  <header>
+    <h1 id="h1-produc" class="text-center my-4 text ">Agrega tus productos</h1>
+  </header>
+  <main>
+    <div class="container-lg">
+        <div class="card shadow">
+          <div class="card-body align-items-center">
+            <form action="/productos/guardar" method="POST" enctype="multipart/form-data">
+                <div class="row  mb-2 pt-2">
+                  <div class="col-3">
+                    <label for="producto">Producto</label>
+                    <input type="text" name="producto" id="producto" class="form-control">
+                  </div>
+                  <div class="col-3">
+                    <label for="imagen">Imágen</label>
+                    <input type="file" name="imagen" id="imagen" class="form-control">
+                  </div>
+                  <div class="col-3">
+                    <label for="url">URL Descarga</label>
+                    <input type="text" name="url" id="url" class="form-control">
+                  </div>
+                  <div class="col-2">
+                    <label for="genero">Género</label>
+                    <input type="text" class="form-control" name="genero" id="genero">
+                  </div>
+                  <div class="col-2">
+                    <label for="descrip">Descripción</label>
+                    <input type="text" class="form-control" name="descrip" id="descrip">
+                  </div>
+                  <div class="col-1">
+                    <button type="submit" class="btn btn-primary mb-3 mt-4">Añadir</button>
+                  </div>
+                </div>
+            </form>
+            <!-- Tabla -->
+            <table class="table table-border">
+              <thead>
+                <tr>
+                  <th class="text-center">ID</th>
+                  <th class="text-center">Nombre Planta</th>
+                  <th class="text-center">Imágen</th>              
+                  <th class="text-center">URL Descarga</th>
+                  <th class="text-center">Género</th>
+                  <th class="text-center">Descripción</th>
+                  <th class="text-center">Posts</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+            {% for p in productos %}
+                  <tr>
+                    <td class="text-center pt-4">{{ p.id }}</td>
+                    <td class="text-center pt-4">{{ p.producto }}</td>
+                    <td class="text-center">
+                      <img width="60" src="/img/{{ p.imagen }}" class="img-fluid" alt="">
+                    </td>
+                    <td class="text-center pt-4">
+                      <button type="submit" class="btn btn-info"><a href="{{ p.url }}" target="_blank" class="text-decoration-none">+Info</a></button>
+                    </td>
+                    <td class="text-center pt-4">{{ p.genero }}</td>
+                    <td class="text-center pt-4">{{ p.descripcion }}</td>
+                    <td class="text-center pt-4">
+                      <button type="submit" class="btn btn-primary" id="btn-edit" data-bs-toggle="modal" data-bs-target="#modal"><a href="/admin_posts/" class="text-decoration-none text-white">Posts</a></button>  
+                    </td>
+                    <td class="pt-4">
+                      <form action="" method="POST">
+                        
+                        <input type="hidden" name="id" id="id" value="">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                      </form>
+                    </td>
+                  </tr>
+                  <!-- Creacción del modal -->
+                  <!--<div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title text-secondary fw-bold fs-3" id=""></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form action="/editar/" method="POST" enctype="multipart/form-data">
+                          <label for="">Nombre Planta</label>
+                          <input type="text" name="txtPlanta" id="txtPlanta" class="form-control" value="">
+                          <label for="">Imágen</label>
+                          <input type="file" name="txtImagen" id="txtImagen" class="form-control" value="">
+                          <label for="">Url</label>
+                          <input type="text" name="txtUrl" id="txtUrl" class="form-control" value="">
+                          <label for="">Especie</label>
+                          <input type="text" name="txtGenero" id="txtGenero" class="form-control" value="">
+                          <button type="submit" class="btn btn-success mt-3">Actualizar</button>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                      </div>
+                      </div>
+                    </div>
+                  </div>-->
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div> 
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='js/style.js') }}"></script>
+</body>
+</html>

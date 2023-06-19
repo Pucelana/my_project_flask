@@ -43,3 +43,43 @@ def registro_admin():
 @app.route('/registro_usu/')
 def registro_usu():
     return render_template('sitio/registro_usu.html')
+  
+# Ruta para subir productos
+@app.route('/productos/')
+def productos():
+    conexion = get_connection()
+    cursor = conexion.cursor(cursor_factory=extras.RealDictCursor)
+    cursor.execute('SELECT * FROM productos')
+    productos = cursor.fetchall()
+    conexion.commit()
+    cursor.close()
+    conexion.close()
+    return render_template('productos.html', productos=productos)
+
+@app.route('/productos/guardar', methods=['GET','POST'])
+def productos_guardar():
+    producto = request.form['producto']
+    imagen = request.files['imagen']
+    url = request.form['url']
+    genero = request.form['genero']
+    descripcion = request.form['descrip']
+    if imagen and allowed_file(imagen.filename):
+        filename = secure_filename(imagen.filename)
+        imagen.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        conexion = get_connection()
+        cursor = conexion.cursor(cursor_factory=extras.RealDictCursor)
+        cursor.execute("INSERT INTO productos(producto,imagen,url,genero,descripcion) VALUES(%s,%s,%s,%s,%s)",(producto, filename, url, genero, descripcion))
+        conexion.commit()
+        cursor.close()
+        conexion.close()
+    return redirect(url_for('productos'))
+
+#Ruta para mostrar las imagenes
+@app.route('/img/<imagen>')
+def imagenes(imagen):
+    print(imagen)
+    return send_from_directory(UPLOAD_FOLDER, imagen)
+  
+  
+if __name__ == '__main__':
+  app.run(debug=True)  

@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, render_template, send_file, url_for, redirect
 from psycopg2 import connect, extras
 from flask_bootstrap import Bootstrap
-from cryptography.fernet import Fernet # Encriptar la contraseña
+"""from cryptography.fernet import Fernet # Encriptar la contraseña"""
 from flask import send_from_directory
 from werkzeug.utils import secure_filename
 import os
@@ -11,7 +11,7 @@ ALLOWED_EXTENSIONS = {'txt','pdf','png','jpg','jpeg','gif'}
 
 app = Flask(__name__)
 
-key = Fernet.generate_key()
+"""key = Fernet.generate_key()"""
 bootstrap = Bootstrap(app)
 env_config = os.getenv( "PROD_APP_SETTINGS" , "config.DevelopmentConfig" ) 
 app.config.from_object(env_config) 

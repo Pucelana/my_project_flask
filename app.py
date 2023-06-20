@@ -22,8 +22,6 @@ bootstrap = Bootstrap(app)
 env_config = os.getenv( "PROD_APP_SETTINGS" , "config.DevelopmentConfig" ) 
 app.config.from_object(env_config) 
 
-
-
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def allowed_file(filename):

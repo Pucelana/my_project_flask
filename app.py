@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, render_template, send_file, url_for, redirect
 from psycopg2 import connect, extras
 from flask_bootstrap import Bootstrap
-"""from cryptography.fernet import Fernet # Encriptar la contraseña"""
+from cryptography.fernet import Fernet # Encriptar la contraseña
 from flask import send_from_directory
 from werkzeug.utils import secure_filename
 import os
@@ -17,7 +17,7 @@ dbname = 'postgresql_pgadmin_7giw'
 user = 'postgresql_pgadmin_7giw_user'
 password = 'APlGvw8Y1q7harEMM9FWUm37QzDApClU'
 
-"""key = Fernet.generate_key()"""
+key = Fernet.generate_key()
 bootstrap = Bootstrap(app)
 env_config = os.getenv( "PROD_APP_SETTINGS" , "config.DevelopmentConfig" ) 
 app.config.from_object(env_config) 
@@ -36,9 +36,36 @@ def get_connection():
 def  index (): 
   return  render_template('sitio/index.html')
 
-@app.route('/registro_admin/')
+# Registro de Administradores
+@app.route('/registro_admin/', methods=['GET','POST'])
 def registro_admin():
-    return render_template('sitio/registro_admin.html')
+    message = ''
+    if request.method == 'POST' and 'nombre' in request.form and 'primerApellido' in request.form and 'segundoApellido' in request.form and 'usuario' in request.form and 'email' in request.form and 'provincia' in request.form and 'categoria' in request.form and 'password' in request.form:
+        nombre = request.form['nombre']
+        primerApellido = request.form['primerApellido']
+        segundoApellido = request.form['segundoApellido']
+        admin = request.form['usuario']
+        email = request.form['email']
+        provincia = request.form['provincia']
+        categoria = request.form['categoria']
+        password = Fernet(key).encrypt(bytes(request.form['password'], 'UTF-8'))
+        conexion = get_connection()
+        cursor = conexion.cursor(cursor_factory=extras.RealDictCursor)
+        cursor.execute("SELECT * FROM administradores")
+        account = cursor.fetchone()
+        if account:
+            message = 'Ya existe esta cuenta'
+        else:
+            cursor.execute("INSERT INTO administradores(nombre,primerApellido,segundoApellido,nombreUsuario,email,provincia,categoria,password) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)", (nombre,primerApellido,segundoApellido,admin,email,provincia,categoria,password))
+            conexion.commit()
+            message = 'Se registro con exito'    
+            return render_template('admin/login_admin.html', message=message)    
+    return render_template('sitio/registro_admin.html', message=message) 
+
+# Login de Administradores
+@app.route('/login_admin/')
+def login_admin():
+    return render_template('admin/login_admin.html')
 
 @app.route('/registro_usu/')
 def registro_usu():

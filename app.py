@@ -40,7 +40,7 @@ def  index ():
 @app.route('/registro_admin/', methods=['GET','POST'])
 def registro_admin():
     message = ''
-    if request.method == 'POST' and 'nombre' in request.form and 'primerApellido' in request.form and 'segundoApellido' in request.form and 'usuario' in request.form and 'email' in request.form and 'provincia' in request.form and 'categoria' in request.form and 'password' in request.form:
+    if request.method == 'POST' and 'nombre' in request.form and 'usuario' in request.form and 'email' in request.form and 'provincia' in request.form and 'categoria' in request.form and 'password' in request.form:
         nombre = request.form['nombre']
         primerApellido = request.form['primerApellido']
         segundoApellido = request.form['segundoApellido']
@@ -50,16 +50,20 @@ def registro_admin():
         categoria = request.form['categoria']
         password = Fernet(key).encrypt(bytes(request.form['password'], 'UTF-8'))
         conexion = get_connection()
-        cursor = conexion.cursor(cursor_factory=extras.RealDictCursor)
-        cursor.execute("SELECT * FROM administradores")
-        account = cursor.fetchone()
+        cursor = conexion.cursor()
+        cursor.execute("SELECT * FROM administradores WHERE email=%s",(email,))
+        account = cursor.fetchall()
         if account:
             message = 'Ya existe esta cuenta'
+        elif not nombre or not primerApellido or not segundoApellido or not admin or not email or not provincia or not categoria or not password:
+            message = 'Por favor, rellena los campos'
         else:
-            cursor.execute("INSERT INTO administradores(nombre,primerApellido,segundoApellido,nombreUsuario,email,provincia,categoria,password) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)", (nombre,primerApellido,segundoApellido,admin,email,provincia,categoria,password))
+            cursor.execute("INSERT INTO administradores(nombre,primerApellido,segundoApellido,nombreUsuario,email,provincia,categoria,password) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)",(nombre,primerApellido,segundoApellido,admin,provincia,categoria,email,password))
             conexion.commit()
-            message = 'Se registro con exito'    
-            return render_template('admin/login_admin.html', message=message)    
+            message = 'El registro se realizo con exito'
+            return render_template('admin/login_admin.html', message=message)
+    elif request.method == 'POST':
+        message = 'Ocurrio algún problema'
     return render_template('sitio/registro_admin.html', message=message) 
 
 # Login de Administradores

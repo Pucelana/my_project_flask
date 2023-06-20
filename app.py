@@ -11,16 +11,18 @@ ALLOWED_EXTENSIONS = {'txt','pdf','png','jpg','jpeg','gif'}
 
 app = Flask(__name__)
 
+host = 'dpg-ci8rgm5gkuvmfns8scu0-a.frankfurt-postgres.render.com'
+port = 5432
+dbname = 'postgresql_pgadmin_7giw'
+user = 'postgresql_pgadmin_7giw_user'
+password = 'APlGvw8Y1q7harEMM9FWUm37QzDApClU'
+
 """key = Fernet.generate_key()"""
 bootstrap = Bootstrap(app)
 env_config = os.getenv( "PROD_APP_SETTINGS" , "config.DevelopmentConfig" ) 
 app.config.from_object(env_config) 
 
-host = 'dpg-ci88o6p8g3n3vm436nf0-a'
-port = 5432
-dbname = 'my_project_db_lg3e'
-user = 'my_project_db_lg3e_user'
-password = 'HppJoMDM3FO0XxIM10riHCXcVgw8O70y'
+
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -54,7 +56,7 @@ def productos():
     conexion.commit()
     cursor.close()
     conexion.close()
-    return render_template('productos.html', productos=productos)
+    return render_template('admin/home_admin.html', productos=productos)
 
 @app.route('/productos/guardar', methods=['GET','POST'])
 def productos_guardar():

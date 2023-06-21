@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Home Principal</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <!-- CSS -->
+  <link href="{{ url_for('static', filename='css/estilo.css') }}" rel="stylesheet" type="text/css">   
+</head>
+<body id="body_1">
+  <header>
+    <nav class="nav justify-content-end home_sitio">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Iniciar Sesión
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/login_admin/">Administrador</a></li>
+          <li><a class="dropdown-item" href="/login_usu/">Usuario</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Registrate
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/registro_admin/">Administrador</a></li>
+          <li><a class="dropdown-item" href="/registro_usu/">Usuario</a></li>
+        </ul>
+      </li>
+    </nav>
+    <h1 class="text-center my-5" id="h1_sit_home">Bienvenid@s a Comercio Cultural</h1>
+  </header>
+  <main>
+    <section class="container-lg pt-4">
+      <div class="row">
+        <div class="col-5">
+          <img src="static/img2/Artesania.jpg" class="img-fluid fotos_sitio" alt="artesania">
+        </div>
+        <div class="col-7">
+          <h2 class="text-center mt-5 h2_sit_home">¿Quienes somos?</h2>
+          <p class="texto pt-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis id earum delectus non odio possimus nostrum nisi illum amet dolorem laborum et eligendi doloribus consequatur enim, inventore aliquam blanditiis? Id suscipit dignissimos in odit ad, magnam fugiat unde ipsam adipisci modi porro. Tenetur modi ex magni nesciunt accusamus illo consequuntur.</p>
+        </div> 
+      </div>
+      <div class="row my-5">
+        <div class="col-7">
+          <h2 class="text-center mt-5 h2_sit_home">¿Cuál es nuestro proposito ?</h2>
+          <p class="texto pt-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis id earum delectus non odio possimus nostrum nisi illum amet dolorem laborum et eligendi doloribus consequatur enim, inventore aliquam blanditiis? Id suscipit dignissimos in odit ad, magnam fugiat unde ipsam adipisci modi porro. Tenetur modi ex magni nesciunt accusamus illo consequuntur.</p>
+          <button type="button" class="btn"><a href="#" class="text-decoration-none btn_acceso_a">+ Información</a></button>
+        </div>
+         
+        <div class="col-5">
+          <img src="static/img2/tucanjpg.jpg" class="img-fluid fotos_sitio" alt="artesania">
+        </div>
+      </div>
+      <div id="">
+      <h3 class="text-center text_h3 mb-3">Como unirte a Nosotros</h3>
+      <p class="texto mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus alias voluptates cum quibusdam sit quisquam vitae necessitatibus at, saepe dolorem! Non nostrum rem hic temporibus sequi aperiam officiis! Voluptatum neque animi sit optio, ab dolore. Fugit, corrupti repellat laudantium amet, ea earum, at repudiandae velit id rem delectus. Praesentium illo, ipsam quo dolore possimus perspiciatis ad. Voluptates perspiciatis consectetur nisi quod, deserunt incidunt magni itaque recusandae praesentium quaerat animi quas perferendis! Nam veritatis nulla officiis accusantium? Dicta mollitia dolor provident nam assumenda nulla ab consequuntur asperiores incidunt perferendis ea harum ipsa odio ducimus quas repudiandae eius, consequatur excepturi amet expedita!</p>
+      </div>
+      <div class="row mb-5">
+        <div class="col-6 text-center">
+          <button type="submit" class="btn"><a href="/registro_admin/" class="text-decoration-none btn_acceso_a">Administrador</a></button>
+        </div>
+        <div class="col-6 text-center">
+          <button type="submit" class="btn"><a href="/registro_usu/" class="text-decoration-none btn_acceso_a">Usuario</a></button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="foot_sit_home">
+    <section class="container-lg py-3">
+      <div class="row foot_text">
+        <div class="col-4">
+         <h5 class="text-center">Política de privacidad</h5>
+         <h5 class="text-center">Cookies</h5> 
+        </div>
+        <div class="col-4">
+          <h5 class="text-center">Información Legal</h5>
+          <h5 class="text-center">Localización</h5>
+          <h5 class="text-center">Contacto</h5>
+        </div>
+        <div class="col-4">
+          <h5 class="text-center">Forma de pago</h5>
+          <h5 class="text-center">Descuentos</h5>
+          <h5 class="text-center">Devoluciones</h5>
+        </div>
+      </div>
+      <div class="foot_text pt-2">
+        <h6 class="text-center">luccyweb copyright 2023</h6>
+      </div>
+
+    </section>
+    
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+</html>

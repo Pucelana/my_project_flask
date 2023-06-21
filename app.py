@@ -35,8 +35,8 @@ def get_connection():
     return conexion
 
 @app.route( "/" ) 
-def  index (): 
-  return  render_template('sitio/index.html')
+def  home_sitio(): 
+  return  render_template('sitio/home_sitio.html')
 
 # Registro de Administradores
 @app.route('/registro_admin/', methods=['GET','POST'])

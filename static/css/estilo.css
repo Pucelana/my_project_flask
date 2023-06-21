@@ -1,11 +1,152 @@
-body{
-    background-color: #c7ffff;
+#body_1{
+    background: linear-gradient( 90deg, #a8ffa8, #c2fdc2, #e6ffe6); 
 }
-h1{
-    color: #278585;
-    font-size: 50px;
+#body_2{
+    background:  #e0ffed; 
 }
-#h1_admin{
-    color: #003d3d;
-    font-size: 35px;
+#body_admin_home{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/img2/pexels-fallon-michael-3551711.jpg"); 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: 574px; 
 }
+.h1_admin_home{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-top: 120px;
+    font-size: 60px;
+    color: #64ce64;
+}
+.btn_admin_home{
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+}
+.text_admin_home{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 65px;
+    color: #48d148;
+}
+.texto_home_usu{
+    color: #54c454;
+}
+.body_regis{
+    background-color: #d6ffd6;
+}
+.body_login{
+    background-color: #e9f9ff;
+}
+.home_sitio{
+    background-color: #337e33;
+    padding: 15px;
+    color: white;
+}
+.nav-admin{
+    background-color: #b9ffd6;
+}
+.nav-a{
+    color: #3fad6d;
+}
+.nav-a:hover{
+    color: #ac9579;
+}
+.admin{
+    color: #ffaf4e;
+}
+#h1_sit_home{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #005700;
+    font-size: 80px;
+}
+.h2_sit_home{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #747474;
+}
+.text_h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+    color: #005700;
+}
+.fotos_sitio{
+    width: 450px;
+    height: 280px;
+    text-align: center;
+}
+.texto{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+}
+/* Botón de acceso del home de admin */
+.btn_acceso_a{
+    font-size: 25px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;;
+    border: 0px;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #008000;
+    color: #ffffff;
+}
+/* Botón hover de cceso del home de admin */
+.btn_acceso_a:hover{
+    background-color: #ffffff;
+    color: #008000;
+    border: 4px solid #008000;
+}
+#foot_sit_home{
+    background-color: #337e33;
+}
+.foot_text{
+    color: #e2e2e2;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.alerta_regis{
+    font-size: 16px;
+    color: #ff0000;
+    background-color: #ffa3a3;
+    transition: ease-in .4s;
+}
+.alert_admin{
+    font-size: 16px;
+    color: #003f00;
+    background-color: #a8ffa8;
+}
+.carrusel{
+    height: 600px;
+}
+#form_post_admin{
+    display: none;
+}
+#form_comentarios{
+    display: none;
+    position: fixed;
+    top: 20%;
+    bottom: 50%;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+}
+.card_bordes{
+    background-color: #cdffe2;
+    padding: 2px;
+}
+/* Estilo para la seccion de los dialogos 
+.dialog_box{
+    width: 400px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.dialog_text{
+    margin-bottom: 10px;
+}
+.dialog_boton{
+    background-color: #4CAF50;
+    color: #ffffff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}*/

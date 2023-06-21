@@ -89,7 +89,7 @@ def login_admin():
             session['admin'] = user2[4]
             session['email'] = user2[5]
             print('Contraseñas coinciden')
-            return redirect(url_for('admin'))
+            return redirect(url_for('home_admin'))
         else:
             print('No coinciden las contraseñas')        
     elif request.method == 'POST':
@@ -149,7 +149,6 @@ def login_usu():
     elif request.method == 'POST':
         message = 'Por favor, rellene los campos' 
     return render_template('usu/login_usu.html')
-
   
 # Ruta para subir productos
 @app.route('/admin')
@@ -204,8 +203,12 @@ def usu_galeria():
 # Home de usuarios
 @app.route('/home_usu')
 def home_usu():
-    
     return render_template('usu/home_usu.html')
+
+# Ruta home de admin
+@app.route('/home_admin')
+def home_admin():
+    return render_template('admin/home_admin.html')
   
   
 if __name__ == '__main__':

@@ -21,7 +21,7 @@
           <div class="card-body align-items-center">
             <form action="/admin/guardar" method="POST" enctype="multipart/form-data">
                 <div class="row  mb-2 pt-2">
-                  <div class="col-3">
+                  <div class="col-2">
                     <label for="producto">Producto</label>
                     <input type="text" name="producto" id="producto" class="form-control">
                   </div>
@@ -29,17 +29,17 @@
                     <label for="imagen">Imágen</label>
                     <input type="file" name="imagen" id="imagen" class="form-control">
                   </div>
-                  <div class="col-3">
+                  <div class="col-2">
                     <label for="url">URL Descarga</label>
                     <input type="text" name="url" id="url" class="form-control">
                   </div>
-                  <div class="col-2">
+                  <div class="col-1">
                     <label for="genero">Género</label>
                     <input type="text" class="form-control" name="genero" id="genero">
                   </div>
-                  <div class="col-2">
+                  <div class="col-3">
                     <label for="descrip">Descripción</label>
-                    <input type="text" class="form-control" name="descrip" id="descrip">
+                    <textarea class="form-control" name="descrip" id="descrip" style="height: 30px;"></textarea>
                   </div>
                   <div class="col-1">
                     <button type="submit" class="btn btn-primary mb-3 mt-4">Añadir</button>
@@ -50,12 +50,12 @@
             <table class="table table-border">
               <thead>
                 <tr>
-                  <th class="text-center">ID</th>
                   <th class="text-center">Nombre Planta</th>
                   <th class="text-center">Imágen</th>              
                   <th class="text-center">URL Descarga</th>
                   <th class="text-center">Género</th>
                   <th class="text-center">Descripción</th>
+                  <th class="text-center">Fecha</th>
                   <th class="text-center">Posts</th>
                   <th></th>
                 </tr>
@@ -63,7 +63,6 @@
               <tbody>
             {% for p in productos %}
                   <tr>
-                    <td class="text-center pt-4">{{ p.id }}</td>
                     <td class="text-center pt-4">{{ p.producto }}</td>
                     <td class="text-center">
                       <img width="60" src="/img/{{ p.imagen }}" class="img-fluid" alt="">
@@ -73,6 +72,7 @@
                     </td>
                     <td class="text-center pt-4">{{ p.genero }}</td>
                     <td class="text-center pt-4">{{ p.descripcion }}</td>
+                    <td class="text-center pt-4">{{ p.created_at }}</td>
                     <td class="text-center pt-4">
                       <button type="submit" class="btn btn-primary" id="btn-edit" data-bs-toggle="modal" data-bs-target="#modal"><a href="/admin_posts/" class="text-decoration-none text-white">Posts</a></button>  
                     </td>

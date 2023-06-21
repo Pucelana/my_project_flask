@@ -96,9 +96,60 @@ def login_admin():
         message = 'Por favor, rellene los campos' 
     return render_template('admin/login_admin.html')
 
-@app.route('/registro_usu/')
+# Registro de usuarios
+@app.route('/registro_usu/', methods=['GET','POST'])
 def registro_usu():
+    message = ''
+    if request.method == 'POST' and 'nombre' in request.form and 'usuario' in request.form and 'email' in request.form and 'password' in request.form:
+        nombre = request.form['nombre']
+        usuario = request.form['usuario']
+        correo = request.form['email']
+        password_usu = request.form['password']
+        
+        hashed_password = bcrypt.hash(password_usu)
+         
+        conexion = get_connection()
+        cursor = conexion.cursor()
+        cursor.execute("SELECT * FROM usuarios WHERE correo=%s", (correo,))
+        account = cursor.fetchall()
+        print(account)
+        if account:
+            message = 'Ya existe esta cuenta'
+        elif not nombre or not usuario or not correo or not password_usu:
+            message = 'Por favor, rellena los campos'
+        else:
+            cursor.execute("INSERT INTO usuarios(nombre,usuario,correo,password) VALUES(%s,%s,%s,%s)",(nombre,usuario,correo,hashed_password))
+            conexion.commit()
+            message = 'El registro se realizo con exito'
+            return render_template('usu/login_usu.html', message=message)
+    elif request.method == 'POST':
+        message = 'Ocurrio algún problema'
     return render_template('sitio/registro_usu.html')
+
+# Login de usuarios
+@app.route('/login_usu/', methods=['GET','POST'])
+def login_usu():
+    message = ''
+    if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
+        correo = request.form['email']
+        entered_password = request.form['password']
+        conexion = get_connection()
+        cursor = conexion.cursor()
+        cursor.execute("SELECT * FROM usuarios WHERE correo=%s",(correo,))
+        user2 = cursor.fetchone()
+        if user2 and bcrypt.verify(entered_password, user2[4]):
+            session['loggedin'] = True
+            session['id'] = user2[0]
+            session['usuario'] = user2[2]
+            session['email'] = user2[3]
+            print('Contraseñas coinciden')
+            return redirect(url_for('usu_galeria'))
+        else:
+            print('No coinciden las contraseñas')        
+    elif request.method == 'POST':
+        message = 'Por favor, rellene los campos' 
+    return render_template('usu/login_usu.html')
+
   
 # Ruta para subir productos
 @app.route('/admin')
@@ -112,6 +163,7 @@ def admin():
     conexion.close()
     return render_template('admin/admin.html', productos=productos)
 
+# Ruta para guardar los productos en la tabla
 @app.route('/admin/guardar', methods=['GET','POST'])
 def admin_guardar():
     producto = request.form['producto']
@@ -135,6 +187,23 @@ def admin_guardar():
 def imagenes(imagen):
     print(imagen)
     return send_from_directory(UPLOAD_FOLDER, imagen)
+
+# Ruta para mostrar las imagenes en la galeria de usuarios
+@app.route('/usu/galeria')
+def usu_galeria():
+    conexion = get_connection()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM productos ORDER BY created_at DESC")
+    imagenes = cursor.fetchall()
+    conexion.commit()
+    print(imagenes)
+    return render_template('usu/galeria_usu.html', imagenes=imagenes) 
+
+# Home de usuarios
+@app.route('/home_usu')
+def home_usu():
+    
+    return render_template('usu/home_usu.html')
   
   
 if __name__ == '__main__':

@@ -1,0 +1,58 @@
+{% extends 'usu/base.html' %}
+{% block titulo %} Home {% endblock %}
+{% block contenido %}
+<div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb my-2 mx-4">
+      <li class="breadcrumb-item active" aria-current="page">Home</li>
+    </ol>
+  </nav>
+</div>
+<section class="container-lg">   
+<h2 class="text-center texto_home_usu">Últimas fotos publicadas</h2>
+<div class="row my-4">
+  {% for img in imagenes %}
+  <div class="col-md-2 mb-4">
+      <div class="card" style="width: 200px;">
+          <img class="card-img-top" style="width: 198px; height: 200px;" src="/img/{{img[2]}}" alt="Title">
+        <div class="card-body">
+              <h5 class="card-title">{{ img[1] }}</h5>
+          <div class="">
+              <h6 class="text-secondary">Usuario: <a href="mailto:{{ img[1] }}" class="text-decoration-none"><strong class="">{{ img[2] }}</strong></a></h6>
+          </div>
+          <div class="">
+              <h6 class="text-secondary">Fecha: <strong class="">{{ img[6] }}</strong></h6>
+          </div> 
+        </div>
+      </div>
+  </div>
+  {% endfor %}
+  </div>
+  <h3 class="text-center texto_home_usu">Últimos post publicados</h3>
+  <!--<div class="row my-4">
+    {% for post in posts2 %}
+    <div class="col-lg-4">
+    <div class="card mb-3">
+      <div class="card_bordes">
+        <h6 class="text-center">{{ post[1] }}</h6>
+      </div>
+      <div class="card-body">
+        <h5 class="fw-bold">{{ post[3] }}</h5>
+        <textarea class="form-control border border-0" style="height: 120px;" readonly>{{ post[4] }}</textarea>
+      </div>
+      <div class="card_bordes">
+        <div class="row">
+          <div class="col-9">
+            <h6 class="ps-2 pt-2">Fecha de publicación: <strong>{{ post[5] }}</strong></h6>
+          </div>
+          <div class="col-3">
+            <button type="submit" class="btn btn-success"><a href="/usu_dialogos/" class="text-decoration-none text-white">Dialogos</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+   </div>-->
+</section>
+{% endblock %}

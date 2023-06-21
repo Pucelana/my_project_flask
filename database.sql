@@ -21,3 +21,12 @@ CREATE TABLE administradores(
     password TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+""" Tabla de los Usuarios """
+CREATE TABLE usuarios(
+    id_usu SERIAL PRIMARY KEY NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    usuario VARCHAR(255) NOT NULL,
+    correo VARCHAR(255) NOT NULL,
+    password TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

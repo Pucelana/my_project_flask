@@ -89,7 +89,7 @@ def login_admin():
             session['usuario'] = user2[4]
             session['email'] = user2[5]
             print('Contraseñas coinciden')
-            return redirect(url_for('home_admin'))
+            return redirect(url_for('admin'))
         else:
             print('No coinciden las contraseñas')        
     elif request.method == 'POST':
@@ -101,8 +101,8 @@ def registro_usu():
     return render_template('sitio/registro_usu.html')
   
 # Ruta para subir productos
-@app.route('/home_admin')
-def home_admin():
+@app.route('/admin')
+def admin():
     conexion = get_connection()
     cursor = conexion.cursor(cursor_factory=extras.RealDictCursor)
     cursor.execute('SELECT * FROM productos')
@@ -110,10 +110,10 @@ def home_admin():
     conexion.commit()
     cursor.close()
     conexion.close()
-    return render_template('admin/home_admin.html', productos=productos)
+    return render_template('admin/admin.html', productos=productos)
 
-@app.route('/home_admin/guardar', methods=['GET','POST'])
-def home_admin_guardar():
+@app.route('/admin/guardar', methods=['GET','POST'])
+def admin_guardar():
     producto = request.form['producto']
     imagen = request.files['imagen']
     url = request.form['url']
@@ -128,7 +128,7 @@ def home_admin_guardar():
         conexion.commit()
         cursor.close()
         conexion.close()
-    return redirect(url_for('home_admin'))
+    return redirect(url_for('admin'))
 
 #Ruta para mostrar las imagenes
 @app.route('/img/<imagen>')

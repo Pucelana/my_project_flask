@@ -1,15 +1,18 @@
-from flask import Flask, jsonify, request, render_template, send_file, url_for, redirect
+from flask import Flask, jsonify, request, render_template, send_file, url_for, redirect, session
 from psycopg2 import connect, extras
+from passlib.hash import bcrypt
 from flask_bootstrap import Bootstrap
-from cryptography.fernet import Fernet # Encriptar la contraseña
 from flask import send_from_directory
 from werkzeug.utils import secure_filename
 import os
+
+
 
 UPLOAD_FOLDER = 'static/img/'
 ALLOWED_EXTENSIONS = {'txt','pdf','png','jpg','jpeg','gif'}
 
 app = Flask(__name__)
+app.secret_key = b',)U\xcf\x8bl\x7f\xf0\x9bB\x8dg'
 
 host = 'dpg-ci8rgm5gkuvmfns8scu0-a.frankfurt-postgres.render.com'
 port = 5432
@@ -17,7 +20,6 @@ dbname = 'postgresql_pgadmin_7giw'
 user = 'postgresql_pgadmin_7giw_user'
 password = 'APlGvw8Y1q7harEMM9FWUm37QzDApClU'
 
-key = Fernet.generate_key()
 bootstrap = Bootstrap(app)
 env_config = os.getenv( "PROD_APP_SETTINGS" , "config.DevelopmentConfig" ) 
 app.config.from_object(env_config) 
@@ -45,20 +47,24 @@ def registro_admin():
         primerApellido = request.form['primerApellido']
         segundoApellido = request.form['segundoApellido']
         admin = request.form['usuario']
-        email = request.form['email']
+        correo = request.form['email']
         provincia = request.form['provincia']
         categoria = request.form['categoria']
-        password = Fernet(key).encrypt(bytes(request.form['password'], 'UTF-8'))
+        password_adm = request.form['password']
+        
+        hashed_password = bcrypt.hash(password_adm)
+         
         conexion = get_connection()
         cursor = conexion.cursor()
-        cursor.execute("SELECT * FROM administradores WHERE email=%s",(email,))
+        cursor.execute("SELECT * FROM administradores WHERE correo=%s", (correo,))
         account = cursor.fetchall()
+        print(account)
         if account:
             message = 'Ya existe esta cuenta'
-        elif not nombre or not primerApellido or not segundoApellido or not admin or not email or not provincia or not categoria or not password:
+        elif not nombre or not primerApellido or not segundoApellido or not admin or not correo or not provincia or not categoria or not password_adm:
             message = 'Por favor, rellena los campos'
         else:
-            cursor.execute("INSERT INTO administradores(nombre,primerApellido,segundoApellido,nombreUsuario,email,provincia,categoria,password) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)",(nombre,primerApellido,segundoApellido,admin,provincia,categoria,email,password))
+            cursor.execute("INSERT INTO administradores(nombre,primerapellido,segundoapellido,nombreusuario,correo,provincia,categoria,password) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)",(nombre,primerApellido,segundoApellido,admin,correo,provincia,categoria,hashed_password))
             conexion.commit()
             message = 'El registro se realizo con exito'
             return render_template('admin/login_admin.html', message=message)
@@ -67,8 +73,27 @@ def registro_admin():
     return render_template('sitio/registro_admin.html', message=message) 
 
 # Login de Administradores
-@app.route('/login_admin/')
+@app.route('/login_admin/', methods=['GET','POST'])
 def login_admin():
+    message = ''
+    if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
+        correo = request.form['email']
+        entered_password = request.form['password']
+        conexion = get_connection()
+        cursor = conexion.cursor()
+        cursor.execute("SELECT * FROM administradores WHERE correo=%s",(correo,))
+        user2 = cursor.fetchone()
+        if user2 and bcrypt.verify(entered_password, user2[8]):
+            session['loggedin'] = True
+            session['id'] = user2[0]
+            session['usuario'] = user2[4]
+            session['email'] = user2[5]
+            print('Contraseñas coinciden')
+            return redirect(url_for('home_admin'))
+        else:
+            print('No coinciden las contraseñas')        
+    elif request.method == 'POST':
+        message = 'Por favor, rellene los campos' 
     return render_template('admin/login_admin.html')
 
 @app.route('/registro_usu/')
@@ -76,8 +101,8 @@ def registro_usu():
     return render_template('sitio/registro_usu.html')
   
 # Ruta para subir productos
-@app.route('/productos/')
-def productos():
+@app.route('/home_admin')
+def home_admin():
     conexion = get_connection()
     cursor = conexion.cursor(cursor_factory=extras.RealDictCursor)
     cursor.execute('SELECT * FROM productos')
@@ -87,8 +112,8 @@ def productos():
     conexion.close()
     return render_template('admin/home_admin.html', productos=productos)
 
-@app.route('/productos/guardar', methods=['GET','POST'])
-def productos_guardar():
+@app.route('/home_admin/guardar', methods=['GET','POST'])
+def home_admin_guardar():
     producto = request.form['producto']
     imagen = request.files['imagen']
     url = request.form['url']
@@ -103,7 +128,7 @@ def productos_guardar():
         conexion.commit()
         cursor.close()
         conexion.close()
-    return redirect(url_for('productos'))
+    return redirect(url_for('home_admin'))
 
 #Ruta para mostrar las imagenes
 @app.route('/img/<imagen>')
@@ -114,3 +139,4 @@ def imagenes(imagen):
   
 if __name__ == '__main__':
   app.run(debug=True)  
+  

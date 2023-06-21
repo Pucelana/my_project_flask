@@ -15,9 +15,9 @@ CREATE TABLE administradores(
     primerApellido VARCHAR(50) NOT NULL,
     segundoApellido VARCHAR(50) NOT NULL,
     nombreUsuario VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
+    correo VARCHAR(255) NOT NULL,
     provincia VARCHAR(100) NOT NULL,
     categoria VARCHAR(100) NOT NULL,
-    password VARCHAR(255) NOT NULL,
+    password TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

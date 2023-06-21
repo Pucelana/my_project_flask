@@ -14,11 +14,47 @@
 <body class="body_login">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb my-2 mx-4">
-      <li class="breadcrumb-item"><a href="/usu_home/" class="text-success text-decoration-none fw-bold">Home</a></li>
+      <li class="breadcrumb-item"><a href="/" class="text-success text-decoration-none fw-bold">Home</a></li>
       <li class="breadcrumb-item active" aria-current="page">Login Administrador</li>
     </ol>
   </nav>
     <h1 class="text-center text-primary fw-bold my-5">LOGIN</h1>
+    <div class="d-flex justify-content-center align-items-center g-2">
+      <div class="col-4">
+         <div class="card mb-5">
+          <div class="card-header bg-primary">
+          </div>
+          <div class="card-body">
+              <form action="/login_admin/" method="POST">
+                  {% if message is defined and message %}
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <strong>{{ message }}</strong>
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                  {% endif %}
+                  <div class="mb-3">
+                      <label for="email" class="form-label">Email:</label>
+                      <input type="text" class="form-control" name="email" id="email">
+                  </div>
+                  <div class="mb-3">
+                      <label for="password" class="form-label">Contraseña:</label>
+                      <input type="password" class="form-control" name="password" id="password">
+                  </div>
+                  <div class="row">
+                  <div class="col-6 mb-3">
+                      <button type="submit" class="btn btn-secondary fs-5">Acceder</button>
+                  </div>
+                  <div class="col-6 mt-2">
+                      <p>¿No te registraste?<a href="/registro_admin/" class="ms-1 text-decoration-none fs-5">Registrar</a></p>
+                  </div>
+                  </div>
+              </form>
+          </div>
+          <div class="card-footer bg-primary">
+          </div>
+         </div>
+      </div>
+  </div>  
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">

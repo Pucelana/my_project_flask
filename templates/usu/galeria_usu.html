@@ -12,16 +12,16 @@
 <h2 class="text-center texto_home_usu">Últimas fotos publicadas</h2>
 <div class="row my-4">
   {% for img in imagenes %}
-  <div class="col-md-2 mb-4">
+  <div class="col-2 mb-4">
       <div class="card" style="width: 200px;">
-          <img class="card-img-top" style="width: 198px; height: 200px;" src="/img/{{img[2]}}" alt="Title">
+          <img class="card-img-top" style="width: 198px; height: 200px;" src="/img/{{img[4]}}" alt="Title">
         <div class="card-body">
-              <h5 class="card-title">{{ img[1] }}</h5>
+              <h5 class="card-title">{{ img[3] }}</h5>
           <div class="">
-              <h6 class="text-secondary">Usuario: <a href="mailto:{{ img[1] }}" class="text-decoration-none"><strong class="">{{ img[2] }}</strong></a></h6>
+              <h6 class="text-secondary">Usuario: <a href="mailto:{{ img[2] }}" class="text-decoration-none"><strong class="">{{ img[2] }}</strong></a></h6>
           </div>
           <div class="">
-              <h6 class="text-secondary">Fecha: <strong class="">{{ img[6] }}</strong></h6>
+              <h6 class="text-secondary">Fecha: <strong class="">{{ img[8] }}</strong></h6>
           </div> 
         </div>
       </div>

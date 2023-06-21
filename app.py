@@ -86,7 +86,7 @@ def login_admin():
         if user2 and bcrypt.verify(entered_password, user2[8]):
             session['loggedin'] = True
             session['id'] = user2[0]
-            session['usuario'] = user2[4]
+            session['admin'] = user2[4]
             session['email'] = user2[5]
             print('Contraseñas coinciden')
             return redirect(url_for('admin'))
@@ -166,6 +166,8 @@ def admin():
 # Ruta para guardar los productos en la tabla
 @app.route('/admin/guardar', methods=['GET','POST'])
 def admin_guardar():
+    admin = session['admin']
+    email = session['email']
     producto = request.form['producto']
     imagen = request.files['imagen']
     url = request.form['url']
@@ -176,7 +178,7 @@ def admin_guardar():
         imagen.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         conexion = get_connection()
         cursor = conexion.cursor(cursor_factory=extras.RealDictCursor)
-        cursor.execute("INSERT INTO productos(producto,imagen,url,genero,descripcion) VALUES(%s,%s,%s,%s,%s)",(producto, filename, url, genero, descripcion))
+        cursor.execute("INSERT INTO productos(email,administrador,producto,imagen,url,genero,descripcion) VALUES(%s,%s,%s,%s,%s,%s,%s)",(email,admin,producto, filename, url, genero, descripcion))
         conexion.commit()
         cursor.close()
         conexion.close()

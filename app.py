@@ -210,7 +210,6 @@ def usu_galeria():
 # Borrar los datos de la tabla y las imagenes del img de static
 @app.route('/admin/borrar', methods=['POST'])
 def admin_borrar():
-    message = ''
     _id = request.form['id']
     if not _id:
         return redirect(url_for('admin'))
@@ -227,10 +226,7 @@ def admin_borrar():
             os.unlink(imagen_path)
         cursor.execute("DELETE FROM productos WHERE id_productos=%s", (_id,))
         conexion.commit()
-        message = 'Imagen y registro eliminado correctamente'
-    else:
-        message = 'No se encontro el producto'    
-    return redirect(url_for('admin', message=message))
+    return redirect(url_for('admin'))
 
 # Home de usuarios
 @app.route('/home_usu')

@@ -150,6 +150,11 @@ def login_usu():
     elif request.method == 'POST':
         message = 'Por favor, rellene los campos' 
     return render_template('usu/login_usu.html')
+
+# Ruta home de admin
+@app.route('/home_admin')
+def home_admin():
+    return render_template('admin/home_admin.html')
   
 # Ruta para registrar los productos
 @app.route('/admin')
@@ -225,18 +230,72 @@ def admin_borrar():
         if os.path.exists(imagen_path):
             os.unlink(imagen_path)
         cursor.execute("DELETE FROM productos WHERE id_productos=%s", (_id,))
-        conexion.commit()
+        conexion.commit()   
     return redirect(url_for('admin'))
+
+# Ruta para los posts del administrador 
+@app.route('/admin_posts/')
+def admin_posts():
+    admin = session['admin']
+    email = session['email']
+    conexion = get_connection()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM posts_admin WHERE email=%s AND administrador=%s ORDER BY created_at DESC",[email,admin])
+    posts = cursor.fetchall()
+    conexion.commit()
+    insertObject = []
+    columnName = [column[0] for column in cursor.description]
+    for record in posts:
+        insertObject.append(dict(zip(columnName, record)))
+    cursor.close()    
+    return render_template('admin/posts_admin.html', posts=insertObject)
+
+# Ruta para los posts que crea el administrador
+@app.route('/crear_post_admin/', methods=['GET','POST'])
+def crear_post_admin():
+    admin = session['admin']
+    email = session['email']
+    titulo = request.form['titulo']
+    contenido = request.form['contenido']
+    fecha = request.form['fecha']
+    conexion = get_connection()
+    cursor = conexion.cursor()
+    cursor.execute("INSERT INTO posts_admin(email,administrador,titulo,contenido,created_at) VALUES (%s,%s,%s,%s,%s)",(email, admin, titulo, contenido, fecha))
+    conexion.commit()
+    return redirect(url_for('admin_posts'))
+
+# Ruta para editar post del administrador
+@app.route('/editar_post/<string:id>', methods=['POST'])
+def editar_post(id):
+    titulo = request.form['titulo']
+    contenido = request.form['contenido']
+    fecha = request.form['fecha']
+    if titulo and contenido and fecha:
+        conexion = get_connection()
+        cursor = conexion.cursor()
+        sql = ("UPDATE posts_admin SET titulo=%s, contenido=%s, created_at=%s WHERE id_posts=%s")
+        data = (titulo, contenido, fecha, id,)
+        cursor.execute(sql,data)
+        conexion.commit() 
+    return redirect(url_for('admin_posts'))
+
+# Ruta para eliminar post del administrador
+@app.route('/eliminar_post/<string:id>')
+def eliminar_post(id):
+    conexion = get_connection()
+    cursor = conexion.cursor()
+    sql = ("DELETE FROM posts_admin WHERE id_posts=%s")
+    data = (id,)
+    cursor.execute(sql,data)
+    conexion.commit()
+    return redirect(url_for('admin_posts'))
 
 # Home de usuarios
 @app.route('/home_usu')
 def home_usu():
     return render_template('usu/home_usu.html')
 
-# Ruta home de admin
-@app.route('/home_admin')
-def home_admin():
-    return render_template('admin/home_admin.html')
+
   
   
 if __name__ == '__main__':

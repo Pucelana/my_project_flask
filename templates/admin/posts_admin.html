@@ -1,0 +1,110 @@
+{% extends 'admin/base.html' %}
+{% block titulo %} Posts {% endblock %}
+{% block contenido %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb my-2 mx-4">
+      <li class="breadcrumb-item"><a href="/admin" class="text-success text-decoration-none fw-bold">Productos</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Mis posts</li>
+    </ol>
+  </nav>
+<div class="d-flex justify-content-center mb-4">
+<button onclick="mostrarFormulario()" class="btn btn-success text-center fs-3">Crear mis posts</button>
+</div>
+<!-- Creación del formulario para la creación del post -->
+<div class="col-lg-8 offset-2" id="form_post_admin">
+  <div class="card">
+    <form method="POST" action="/crear_post_admin/">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <div class="card-header">
+        <h5 class="text-center text-secondary"><strong class="text-dark">{{ session.admin }}</strong></h5>
+      </div>
+      <div class="card-body">
+          <div class="mb-3">
+            <label for="titulo" class="form-label">Título:</label>
+            <input type="text" name="titulo" id="titulo" class="form-control">
+          </div>
+          <div class="mb-3">
+              <label for="contenido" class="form-label">Contenido:</label>
+              <textarea name="contenido" id="contenido" class="form-control" style="height: 320px;"></textarea>
+          </div>
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-6">
+            <label for="fecha">Fecha Publicación:</label>
+            <input type="date" id="fecha" name="fecha">
+          </div>
+          <div class="col-3">
+            <button type="submit" class="btn btn-info text-white">Guardar Post</button>
+          </div> 
+          <div class="col-3">
+            <button type="submit" class="btn btn-secondary"><a href="" class="text-decoration-none text-white">Volver</a></button>
+          </div>
+        </div> 
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Fin del formulario del post -->
+<!-- Creación la visibilidad del post creado -->
+  <div class="container-lg my-3">
+   <div class="row">
+    {% for post in posts %}
+    <div class="col-lg-6">
+    <div class="card mb-3">
+      <div class="card_bordes">
+        <h5 class="text-center">{{ session.admin }}</h5>
+      </div>
+      <div class="card-body">
+        <h5 class="fw-bold text-center">{{ post.titulo }}</h5>
+        <textarea class="form-control border border-0" style="height: 120px;" readonly>{{ post.contenido }}</textarea>
+      </div>
+      <div class="card_bordes">
+        <div class="row">
+          <div class="col-7">
+            <h6 class="ps-2 pt-2">Fecha de publicación: <strong>{{ post.created_at }}</strong></h6>
+          </div>
+          <div class="col-2">
+            <button type="submit" id="btn-edit{{ post.id_posts }}" class="btn btn-primary text-center" data-bs-toggle="modal" data-bs-target="#modal{{ post.id_posts }}">Editar</button>
+          </div>
+          <div class="col-3">
+            <button type="submit" class="btn btn-danger"><a href="{{ url_for('eliminar_post', id=post.id_posts) }}" class="text-decoration-none text-white">Eliminar</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!-- Modal para la editación del post -->
+    <div class="modal fade" id="modal{{ post.id_posts }}" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title text-secondary fw-bold fs-3" id="">{{ session.admin }}</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="{{ url_for('editar_post', id=post.id_posts) }}" method="POST">
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+              <label for="titulo">Título</label>
+              <input type="text" name="titulo" id="titulo" class="form-control" value="{{ post.titulo }}">
+              <label for="contenido">Contenido</label>
+              <textarea name="contenido" id="contenido" class="form-control" style="height: 300px;" value="{{ post.contenido }}"></textarea>
+              <label for="fecha">Fecha de Publicación</label>
+              <input type="date" name="fecha" id="fecha" class="" value="{{ post.created_at }}">
+              <div class="row">
+                <div class="col-6">
+                  <button type="submit" class="btn btn-success mt-3">Actualizar</button>
+                </div>
+                <!--<div class="col-6">
+                  <button type="button" class="btn btn-danger mt-3" data-bs-dismiss="modal">Cerrar</button>
+                </div>-->
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+   </div>
+  </div>
+{% endblock %}

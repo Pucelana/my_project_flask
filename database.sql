@@ -32,3 +32,12 @@ CREATE TABLE usuarios(
     password TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+""" Tabla posts del administrador """
+CREATE TABLE posts_admin(
+    id_posts SERIAL PRIMARY KEY NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    administrador VARCHAR(255) NOT NULL,
+    titulo VARCHAR(50) NOT NULL,
+    contenido TEXT NOT NULL,
+    created_at DATE NOT NULL DEFAULT CURRENT_DATE
+);

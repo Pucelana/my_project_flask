@@ -265,7 +265,7 @@ def crear_post_admin():
     return redirect(url_for('admin_posts'))
 
 # Ruta para editar post del administrador
-@app.route('/editar_post/<string:id>', methods=['POST'])
+@app.route('/editar_post/<int:id>', methods=['POST'])
 def editar_post(id):
     titulo = request.form['titulo']
     contenido = request.form['contenido']
@@ -294,6 +294,16 @@ def eliminar_post(id):
 @app.route('/home_usu')
 def home_usu():
     return render_template('usu/home_usu.html')
+
+# Cerrar sesión
+@app.route('/logout')
+def logout():
+    message = ''
+    session.pop['loggedin',None]
+    session.pop['id',None]
+    session.pop['email',None]
+    message = 'Sesión cerrada con exito!!!'
+    return render_template('sitio/home.html')
 
 
   

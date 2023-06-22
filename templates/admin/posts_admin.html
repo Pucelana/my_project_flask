@@ -88,7 +88,7 @@
               <label for="titulo">Título</label>
               <input type="text" name="titulo" id="titulo" class="form-control" value="{{ post.titulo }}">
               <label for="contenido">Contenido</label>
-              <textarea name="contenido" id="contenido" class="form-control" style="height: 300px;" value="{{ post.contenido }}"></textarea>
+              <textarea name="contenido" id="contenido" class="form-control" style="height: 300px;">{{post.contenido}}</textarea>
               <label for="fecha">Fecha de Publicación</label>
               <input type="date" name="fecha" id="fecha" class="" value="{{ post.created_at }}">
               <div class="row">

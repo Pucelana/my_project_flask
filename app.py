@@ -7,8 +7,6 @@ from werkzeug.utils import secure_filename
 from flask_wtf.csrf import CSRFProtect
 import os
 
-
-
 UPLOAD_FOLDER = 'static/img/'
 ALLOWED_EXTENSIONS = {'txt','pdf','png','jpg','jpeg','gif'}
 
@@ -208,6 +206,31 @@ def usu_galeria():
     conexion.commit()
     print(imagenes)
     return render_template('usu/galeria_usu.html', imagenes=imagenes) 
+
+# Borrar los datos de la tabla y las imagenes del img de static
+@app.route('/admin/borrar', methods=['POST'])
+def admin_borrar():
+    message = ''
+    _id = request.form['id']
+    if not _id:
+        return redirect(url_for('admin'))
+    print(_id)
+    conexion = get_connection()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT imagen FROM productos WHERE id_productos=%s",(_id,))
+    producto = cursor.fetchone()
+    conexion.commit()
+    print(producto)
+    if producto:
+        imagen_path = os.path.join(UPLOAD_FOLDER, producto[0])
+        if os.path.exists(imagen_path):
+            os.unlink(imagen_path)
+        cursor.execute("DELETE FROM productos WHERE id_productos=%s", (_id,))
+        conexion.commit()
+        message = 'Imagen y registro eliminado correctamente'
+    else:
+        message = 'No se encontro el producto'    
+    return redirect(url_for('admin', message=message))
 
 # Home de usuarios
 @app.route('/home_usu')

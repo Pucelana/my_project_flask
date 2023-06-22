@@ -15,7 +15,7 @@
 {% endif %}
 <h1 class="text-center text-secondary fw-bold my-4">Agrega tus productos</h1>
 <div class="container-lg">
-  <div class="card shadow">
+  <div class="card shadow mb-4">
     <div class="card-body align-items-center">
       <form action="/admin/guardar" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
@@ -78,7 +78,7 @@
               <td class="pt-4">
                 <form action="/admin/borrar" method="POST">
                   <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                  <input type="hidden" name="id" id="id" value="{{ p.id }}">
+                  <input type="hidden" name="id" id="id" value="{{ p.id_productos }}">
                   <button type="submit" class="btn btn-danger">Eliminar</button>
                 </form>
               </td>

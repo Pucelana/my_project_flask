@@ -4,6 +4,7 @@ from passlib.hash import bcrypt
 from flask_bootstrap import Bootstrap
 from flask import send_from_directory
 from werkzeug.utils import secure_filename
+from flask_wtf.csrf import CSRFProtect
 import os
 
 
@@ -12,6 +13,7 @@ UPLOAD_FOLDER = 'static/img/'
 ALLOWED_EXTENSIONS = {'txt','pdf','png','jpg','jpeg','gif'}
 
 app = Flask(__name__)
+csrf = CSRFProtect(app)
 app.secret_key = b',)U\xcf\x8bl\x7f\xf0\x9bB\x8dg'
 
 host = 'dpg-ci8rgm5gkuvmfns8scu0-a.frankfurt-postgres.render.com'
@@ -34,6 +36,7 @@ def get_connection():
     conexion = connect(host=host, port=port, dbname=dbname, user=user, password=password)
     return conexion
 
+# Home de inicio de sitio
 @app.route( "/" ) 
 def  home_sitio(): 
   return  render_template('sitio/home_sitio.html')
@@ -150,17 +153,23 @@ def login_usu():
         message = 'Por favor, rellene los campos' 
     return render_template('usu/login_usu.html')
   
-# Ruta para subir productos
+# Ruta para registrar los productos
 @app.route('/admin')
 def admin():
+    email = session['email']
+    admin = session['admin']
     conexion = get_connection()
-    cursor = conexion.cursor(cursor_factory=extras.RealDictCursor)
-    cursor.execute('SELECT * FROM productos')
+    cursor = conexion.cursor()
+    cursor.execute('SELECT * FROM productos WHERE email=%s AND administrador=%s', [email,admin])
     productos = cursor.fetchall()
     conexion.commit()
+    insertObject = []
+    columnName = [column[0] for column in cursor.description]
+    for record in productos:
+        insertObject.append(dict(zip(columnName, record)))
     cursor.close()
-    conexion.close()
-    return render_template('admin/admin.html', productos=productos)
+    conexion.close() 
+    return render_template('admin/admin.html', productos=insertObject)
 
 # Ruta para guardar los productos en la tabla
 @app.route('/admin/guardar', methods=['GET','POST'])

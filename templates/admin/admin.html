@@ -18,7 +18,7 @@
   <div class="card shadow">
     <div class="card-body align-items-center">
       <form action="/admin/guardar" method="POST" enctype="multipart/form-data">
-        
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
           <div class="row  mb-2 pt-2">
             <div class="col-2">
               <label for="producto">Producto</label>
@@ -77,7 +77,7 @@
               </td>
               <td class="pt-4">
                 <form action="/admin/borrar" method="POST">
-                  
+                  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                   <input type="hidden" name="id" id="id" value="{{ p.id }}">
                   <button type="submit" class="btn btn-danger">Eliminar</button>
                 </form>

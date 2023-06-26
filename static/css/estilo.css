@@ -61,6 +61,12 @@
     color: #005700;
     font-size: 80px;
 }
+/* Estilo de h1_sit_home para pantallas mas pequeñas */
+@media(max-width: 468px){
+    #h1_sit_home{
+        font-size: 45px;
+    }
+}
 .h2_sit_home{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: #747474;

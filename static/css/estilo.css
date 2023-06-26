@@ -104,7 +104,7 @@
     height: 17.5em;
     text-align: center;
 }
-@media (min-width: 468px) and (max-width: 767px){
+@media (min-width: 0px) and (max-width: 767px){
     .fotos_sitio{
         display: none;
     }

@@ -64,7 +64,7 @@
 /* Estilo de h1_sit_home para pantallas mas pequeñas */
 @media(max-width: 468px){
     #h1_sit_home{
-        font-size: 40px;
+        font-size: 35px;
     }
 }
 .h2_sit_home{

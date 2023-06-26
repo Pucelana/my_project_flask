@@ -190,6 +190,10 @@
 /* Columnas galeria para diferentes dispositivos  */
 .card_galeria {
     width: 12.25em;
+    flex: 0 0 16.66667%; /* Ancho de las columnas */
+    max-width: 16.66667%;
+    padding-right: 15px;
+    padding-left: 15px;
   }
 .col_galeria {
     flex: 0 0 16.66667%; /* Ancho de las columnas */

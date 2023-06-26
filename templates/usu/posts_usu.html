@@ -1,0 +1,71 @@
+{% extends 'usu/base.html' %}
+{% block titulo %} Posts {% endblock %}
+{% block contenido %}
+<div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb my-2 mx-4">
+      <li class="breadcrumb-item"><a href="/home_usu/" class="text-success text-decoration-none fw-bold">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Posts</li>
+    </ol>
+  </nav>
+</div>
+<div class="container-lg my-3">
+  <div class="row">
+   {% for post in posts %}
+   <div class="col-lg-4">
+   <div class="card mb-3">
+     <div class="card_bordes">
+       <h5 class="text-center">{{ post[1] }}</h5>
+     </div>
+     <div class="card-body">
+       <h5 class="fw-bold">{{ post[3] }}</h5>
+       <textarea class="form-control border border-0" style="height: 120px;" readonly>{{ post[4] }}</textarea>
+     </div>
+     <div class="card_bordes">
+      <div class="row">
+        <div class="col-6 mt-1"> 
+          <h6 class="ps-2">Publicado: <strong>{{ post[5] }}</strong></h6>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-success btn-sm"><a href="/usu_comentarios/" class="text-white text-decoration-none">Comentarios</a></button>
+        </div>
+        <div class="col-3">
+          <button onclick="crearComentarios()" class="btn btn-primary btn-sm">Responder</button>
+        </div>
+      </div>
+     </div>
+   </div>
+   </div>
+   {% endfor %}
+  </div>
+ </div>
+ <!-- Creación de la zona de los comentarios -->
+ <div class="col-lg-6 offset-3" id="form_comentarios">
+  <div class="card">
+    <form method="POST" action="/usu_comentarios/">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <div class="row my-3">
+        <div class="col-6">
+        <h5 class="text-center text-secondary"><strong class="text-dark">{{ session.usuario }}</strong></h5>
+        </div>
+        <div class="col-6">
+        <input type="date" name="fechaComent" id="fechaComent">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+          <textarea name="respuesta" id="respuesta" class="form-control border-0" style="height: 200px;" required></textarea>
+        </div>
+      </div>
+        <div class="row mb-3">
+          <div class="col-6 text-center">
+            <button type="submit" class="btn btn-info text-white">Enviar respuesta</button>
+          </div> 
+          <div class="col-6 text-center">
+            <button type="submit" class="btn btn-danger"><a href="" class="text-decoration-none text-white">Cerrar</a></button>
+          </div>
+        </div> 
+    </form>
+  </div>
+ </div>
+{% endblock %}

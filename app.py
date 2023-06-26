@@ -290,11 +290,27 @@ def eliminar_post(id):
     conexion.commit()
     return redirect(url_for('admin_posts'))
 
-# Home de usuarios
-@app.route('/home_usu')
-def home_usu():
-    return render_template('usu/home_usu.html')
+# Ruta de los posts en usuarios
+@app.route('/posts_usu/')
+def posts_usu():
+    conexion = get_connection()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM posts_admin ORDER BY created_at DESC")
+    posts = cursor.fetchall()
+    conexion.commit()
+    return render_template('usu/posts_usu.html', posts=posts)
 
+# Home de usuarios
+@app.route('/home_usu/')
+def home_usu():
+    conexion = get_connection()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM productos ORDER BY created_at DESC LIMIT 6")
+    imagenes = cursor.fetchall()
+    cursor.execute("SELECT * FROM posts_admin ORDER BY created_at DESC LIMIT 3")
+    posts2 = cursor.fetchall()   
+    return render_template('usu/home_usu.html', imagenes=imagenes, posts2=posts2)
+    
 # Cerrar sesión
 @app.route('/logout')
 def logout():

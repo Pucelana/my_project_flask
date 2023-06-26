@@ -59,12 +59,18 @@
 #h1_sit_home{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: #005700;
-    font-size: 80px;
+    font-size: 4.5em;
+}
+/* Estilo de h1_sit_home para pantallas mas pequeñas */
+@media(max-width: 768px){
+    #h1_sit_home{
+        font-size: 3.25em;
+    }
 }
 /* Estilo de h1_sit_home para pantallas mas pequeñas */
 @media(max-width: 468px){
     #h1_sit_home{
-        font-size: 35px;
+        font-size: 2.25em;
     }
 }
 .h2_sit_home{
@@ -73,8 +79,20 @@
 }
 .text_h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 60px;
+    font-size: 4em;
     color: #005700;
+}
+/* Estilo de h1_sit_home para pantallas mas pequeñas */
+@media(max-width: 768px){
+    .text_h3{
+        font-size: 2.75em;
+    }
+}
+/* Estilo de h1_sit_home para pantallas mas pequeñas */
+@media(max-width: 468px){
+    .text_h3{
+        font-size: 2.25em;
+    }
 }
 .fotos_sitio{
     width: 450px;

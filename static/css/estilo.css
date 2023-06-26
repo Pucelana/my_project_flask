@@ -41,7 +41,7 @@
 }
 .home_sitio{
     background-color: #337e33;
-    padding: 15px;
+    padding: 1em;
     color: white;
 }
 .nav-admin{
@@ -61,16 +61,16 @@
     color: #005700;
     font-size: 4.5em;
 }
-/* Estilo de h1_sit_home para pantallas mas pequeñas */
+/* Estilo de h1_sit_home para pantallas tablet */
 @media(max-width: 768px){
     #h1_sit_home{
         font-size: 3.25em;
     }
 }
-/* Estilo de h1_sit_home para pantallas mas pequeñas */
+/* Estilo de h1_sit_home para pantallas moviles */
 @media(max-width: 468px){
     #h1_sit_home{
-        font-size: 2.25em;
+        font-size: 2em;
     }
 }
 .h2_sit_home{
@@ -79,25 +79,35 @@
 }
 .text_h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 4em;
+    font-size: 3em;
     color: #005700;
 }
-/* Estilo de h1_sit_home para pantallas mas pequeñas */
+@media (min-width: 468px) and (max-width: 767px){
+    .text_h3{
+        font-size: 2.50em;
+    }
+}
+/* Estilo de h1_sit_home para pantallas mas pequeñas 
 @media(max-width: 768px){
     .text_h3{
         font-size: 2.75em;
     }
 }
-/* Estilo de h1_sit_home para pantallas mas pequeñas */
+/* Estilo de h1_sit_home para pantallas mas pequeñas
 @media(max-width: 468px){
     .text_h3{
         font-size: 2.25em;
     }
-}
+}*/
 .fotos_sitio{
-    width: 450px;
-    height: 280px;
+    width: 28em;
+    height: 17.5em;
     text-align: center;
+}
+@media (min-width: 468px) and (max-width: 767px){
+    .fotos_sitio{
+        display: none;
+    }
 }
 .texto{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;

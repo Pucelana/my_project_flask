@@ -257,10 +257,9 @@ def crear_post_admin():
     email = session['email']
     titulo = request.form['titulo']
     contenido = request.form['contenido']
-    fecha = request.form['fecha']
     conexion = get_connection()
     cursor = conexion.cursor()
-    cursor.execute("INSERT INTO posts_admin(email,administrador,titulo,contenido,created_at) VALUES (%s,%s,%s,%s,%s)",(email, admin, titulo, contenido, fecha))
+    cursor.execute("INSERT INTO posts_admin(email,administrador,titulo,contenido) VALUES (%s,%s,%s,%s)",(email, admin, titulo, contenido))
     conexion.commit()
     return redirect(url_for('admin_posts'))
 
@@ -299,6 +298,41 @@ def posts_usu():
     posts = cursor.fetchall()
     conexion.commit()
     return render_template('usu/posts_usu.html', posts=posts)
+
+"""# Ruta de los comentarios de los posts
+@app.route('/messages', methods=['GET'])
+def get_messages():
+    usuario = session['usuario']
+    conexion = get_connection()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM comentarios_usu WHERE usuario=%s ORDER BY created_at ASC ", [usuario])
+    rows = cursor.fetchall()
+    messages = []
+    for row in rows:
+        message = {
+            'id_coment': row[0],
+            'mensaje': row[1],
+            'usuario': row[2],
+            'created_at': row[3]
+        }
+        messages.append(message)
+    cursor.close()
+    return jsonify(messages)
+
+@app.route('/messages', methods=['POST'])
+def add_messages():
+    usuario = session['usuario']
+    mensaje = request.form['mensaje']
+    conexion = get_connection()
+    cursor = conexion.cursor()
+    cursor.execute("INSERT INTO comentarios_usu (mensaje,usuario) VALUES (%s,%s)", (mensaje, usuario))
+    cursor.close()
+    conexion.commit()
+    return render_template('usu/comentarios_usu.html')"""
+
+@app.route('/comentarios_usu/')
+def comentarios_usu():
+    return render_template('usu/comentarios_usu.html')
 
 # Home de usuarios
 @app.route('/home_usu/')

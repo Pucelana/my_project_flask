@@ -250,3 +250,31 @@
       max-width: 16.6666%;
     }
   }
+
+
+
+#dialog {
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+#message-container {
+    margin-bottom: 10px;
+}
+
+#message-container p {
+    margin: 5px 0;
+}
+
+#message-input, #user-input {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+button {
+    width: 100%;
+}
+

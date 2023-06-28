@@ -1,0 +1,14 @@
+{% extends 'usu/base.html' %}
+{% block titulo %} Galeria de imagenes {% endblock %}
+{% block contenido %}
+<div id="dialog">
+    <h2>Cuadro de Diálogo</h2>
+    <div id="message-container"></div>
+    <form action="/comentarios_usu/" method="POST" id="message-form">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="text" name="mensaje" id="message-input" placeholder="Escribe un mensaje">
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
+{% endblock %}

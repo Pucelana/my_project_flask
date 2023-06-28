@@ -41,3 +41,11 @@ CREATE TABLE posts_admin(
     contenido TEXT NOT NULL,
     created_at DATE NOT NULL DEFAULT CURRENT_DATE
 );
+""" Tabla para los comentarios """
+CREATE TABLE comentarios_usu(
+    id_coment SERIAL PRIMARY KEY NOT NULL,
+    mensaje TEXT NOT NULL,
+    usuario VARCHAR(255) NOT NULL,
+    created_at DATE NOT NULL DEFAULT CURRENT_DATE
+)
+

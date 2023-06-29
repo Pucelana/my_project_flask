@@ -168,6 +168,9 @@
     background-color: #cdffe2;
     padding: 2px;
 }
+.card_post_usu{
+    height: 14.3rem;
+}
 /* Estilo para la seccion de los dialogos 
 .dialog_box{
     width: 400px;

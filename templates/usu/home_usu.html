@@ -32,21 +32,21 @@
   <div class="row my-4">
     {% for post in posts2 %}
     <div class="col-lg-4">
-    <div class="card mb-3">
+    <div class="card card_post_usu mb-3">
       <div class="card_bordes">
-        <h6 class="text-center">{{ post[1] }}</h6>
+        <h6 class="text-center">{{ post[2] }}</h6>
       </div>
       <div class="card-body">
         <h5 class="fw-bold">{{ post[3] }}</h5>
-        <textarea class="form-control border border-0" style="height: 120px;" readonly>{{ post[4] }}</textarea>
+        <textarea class="form-control border border-0" readonly>{{ post[4] }}</textarea>
       </div>
       <div class="card_bordes">
         <div class="row">
-          <div class="col-8">
-            <h6 class="ps-2 pt-2">Publicado: <strong>{{ post[5] }}</strong></h6>
+          <div class="col-7">
+            <h6 class="text-center pt-2">Publicado: <strong>{{ post[5] }}</strong></h6>
           </div>
-          <div class="col-4">
-            <button type="submit" class="btn btn-success"><a href="" class="text-decoration-none text-white">Dialogos</a></button>
+          <div class="col-5">
+            <button type="submit" class="btn btn-success"><a href="/comentarios_usu/" class="text-decoration-none text-white">Comentarios</a></button>
           </div>
         </div>
       </div>

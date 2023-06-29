@@ -267,31 +267,21 @@
       margin-left: 5px;
     }
   }*/
-
-
-
-#dialog {
-    width: 400px;
-    margin: 20px auto;
+  .card_coment{
+    margin: 50px;
     padding: 20px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-}
-
-#message-container {
-    margin-bottom: 10px;
-}
-
-#message-container p {
-    margin: 5px 0;
-}
-
-#message-input, #user-input {
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-button {
-    width: 100%;
-}
-
+    position: relative;
+    width: 40%;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #f5efef;
+  }
+  .card_coment:after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    border-top: 20px solid blue;
+    border-top-color: inherit;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+  }

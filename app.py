@@ -332,7 +332,32 @@ def add_messages():
 
 @app.route('/comentarios_usu/')
 def comentarios_usu():
-    return render_template('usu/comentarios_usu.html')
+    conexion = get_connection()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM comentarios_usu ORDER BY created_at DESC")
+    filas = cursor.fetchall()
+    conexion.commit()
+    mensajes = []
+    for fila in filas:
+        message={
+            "id_coment": fila[0],
+            "mensaje": fila[1],
+            "usuario": fila[2],
+            "created_at": fila[3]
+        }
+        mensajes.append(message)
+    cursor.close()    
+    return render_template('usu/comentarios_usu.html', mensajes=mensajes)
+
+@app.route('/comentarios_usu_crear/', methods=['POST'])
+def comentarios_usu_crear():
+    usuario = session['usuario']
+    mensaje = request.form['mensaje']
+    conexion = get_connection()
+    cursor = conexion.cursor()
+    cursor.execute("INSERT INTO comentarios_usu(mensaje,usuario) VALUES(%s,%s)", (mensaje,usuario))
+    conexion.commit()   
+    return redirect(url_for('comentarios_usu'))
 
 # Home de usuarios
 @app.route('/home_usu/')

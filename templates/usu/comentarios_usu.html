@@ -1,14 +1,17 @@
 {% extends 'usu/base.html' %}
-{% block titulo %} Galeria de imagenes {% endblock %}
+{% block titulo %} Comentarios de Usuarios {% endblock %}
 {% block contenido %}
-<div id="dialog">
-    <h2>Cuadro de Diálogo</h2>
-    <div id="message-container"></div>
-    <form action="/comentarios_usu/" method="POST" id="message-form">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-        <input type="text" name="mensaje" id="message-input" placeholder="Escribe un mensaje">
-        <button type="submit">Enviar</button>
-    </form>
+<div class="container my-3">
+  {% for mensaje in mensajes %}
+  <div class="d-flex justify-content-center">
+  <div class="card card_coment shadow mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ mensaje['usuario'] }}</h5>
+      <p class="card-text">{{ mensaje['mensaje'] }}</p>
+      <p class="card-text"><small class="text-muted">Públicado: {{ mensaje['created_at'] }}</small></p>
+    </div>
+  </div>
+  </div>
+  {% endfor %}
 </div>
-
 {% endblock %}

@@ -27,7 +27,7 @@
           <h6 class="ps-2">Fecha: <strong>{{ post[5] }}</strong></h6>
         </div>
         <div class="col-4">
-          <button class="btn btn-success btn-sm"><a href="" class="text-white text-decoration-none">Comentarios</a></button>
+          <button class="btn btn-success btn-sm"><a href="/comentarios_usu/" class="text-white text-decoration-none">Comentarios</a></button>
         </div>
         <div class="col-3">
           <button onclick="crearComentarios()" class="btn btn-primary btn-sm">Responder</button>
@@ -40,32 +40,35 @@
   </div>
  </div>
  <!-- Creación de la zona de los comentarios -->
- <div class="col-lg-6 offset-3" id="form_comentarios">
-  <div class="card">
-    <form method="" action="">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-      <div class="row d-flex justify-content-center my-3">
-        <div class="col-6">
-        <h5 class="text-center text-secondary"><strong class="text-dark">{{ session.usuario }}</strong></h5>
-        </div>
-        <div class="col-6">
-        <input type="date" name="fechaComent" id="fechaComent">
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="mb-3">
-          <textarea name="respuesta" id="respuesta" class="form-control border-0" style="height: 190px;" required></textarea>
-        </div>
-      </div>
-        <div class="row d-flex justify-content-center mb-3">
-          <div class="col-4 text-center">
-            <button type="submit" class="btn btn-info text-white">Enviar respuesta</button>
-          </div> 
-          <div class="col-4 text-center">
-            <button type="submit" class="btn btn-danger"><a href="" class="text-decoration-none text-white">Cerrar</a></button>
+ <div class="container-lg my-3">
+  <div class="row">
+      <div class="col-lg-6 offset-3" id="form_comentarios">
+          <div class="card mb-3">
+              <form action="/comentarios_usu_crear/" method="POST">
+                  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                  <div class="row d-flex justify-content-center my-3">
+                      <div class="col-6">
+                          <h5 class="text-center text-secondary">
+                              <strong class="text-dark">{{ session.usuario }}</strong>
+                          </h5>
+                      </div>
+                  </div>
+                  <div class="card-body">
+                      <div class="mb-3">
+                          <textarea name="mensaje" id="mensaje" class="form-control border-0" style="height: 190px;" required></textarea>
+                      </div>
+                  </div>
+                  <div class="row d-flex justify-content-center mb-3">
+                      <div class="col-4 text-center">
+                          <button type="submit" class="btn btn-info text-white">Enviar respuesta</button>
+                      </div> 
+                      <div class="col-4 text-center">
+                          <button type="button" class="btn btn-danger">Cerrar</button>
+                      </div>
+                  </div>
+              </form>
           </div>
-        </div> 
-    </form>
+      </div>
   </div>
- </div>
+</div>
 {% endblock %}

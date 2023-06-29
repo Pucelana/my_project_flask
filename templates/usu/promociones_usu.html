@@ -1,0 +1,62 @@
+{% extends 'usu/base.html' %}
+
+{% block titulo %} Comentarios de Usuario {% endblock %}
+
+{% block contenido %}
+<div class="container-lg my-3">
+    <div class="row">
+        <div class="col-lg-6 offset-3" id="form_comentarios">
+            <div class="card mb-3">
+                <form action="{{ url_for('comentarios_usu_crear') }}" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="id_posts" value="{{ id_posts }}">
+                    <div class="row d-flex justify-content-center my-3">
+                        <div class="col-6">
+                            <h5 class="text-center text-secondary">
+                                <strong class="text-dark">{{ session.usuario }}</strong>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <textarea name="mensaje" id="mensaje" class="form-control border-0" style="height: 190px;" required></textarea>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center mb-3">
+                        <div class="col-4 text-center">
+                            <button type="submit" class="btn btn-info text-white">Enviar respuesta</button>
+                        </div> 
+                        <div class="col-4 text-center">
+                            <button type="submit" class="btn btn-danger"><a href="" class="text-decoration-none text-white">Cerrar</a></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {% for mensaje in mensajes %}
+        <div class="col-lg-6">
+            <div class="card mb-3">
+                <div class="card_bordes">
+                    <h5 class="text-center">{{ mensaje.usuario }}</h5>
+                </div>
+                <div class="card-body">
+                    <textarea class="form-control border border-0" style="height: 120px;" readonly>{{ mensaje.mensaje }}</textarea>
+                </div>
+                <div class="card_bordes">
+                    <div class="row">
+                        <div class="col-7">
+                            <h6 class="ps-2 pt-2">Fecha de publicación: <strong>{{ mensaje.created_at }}</strong></h6>
+                        </div>
+                        <div class="col-3">
+                            <button type="submit" class="btn btn-danger"><a href="" class="text-decoration-none text-white">Responder</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

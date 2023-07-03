@@ -288,7 +288,7 @@
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
   }
-  /* Para que el texto no aparezca entero y se pueda usar leer mas */
+/* Para que el texto no aparezca entero y se pueda usar leer mas */
   .card_coment .coment_text{
     max-height: 80px;
     overflow: hidden;
@@ -302,11 +302,10 @@
   .card_coment.expand .leer_mas{
     display: none;
   }
-  /* Para que el enlace leer mas aparezca en el lado derecho */
   .leer_mas{
     float: right;
-  }
-  /* Elaboración de las imagenes del home */
+  }/* Fin leer mas */
+/* Elaboración de las imagenes del home de usu */
   .col_galeria{
     position: relative;
     width: 1400px;
@@ -314,15 +313,15 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding: 30px;
-    margin: 2px auto;
+    padding: 20px;
+    margin: 1px auto;
     columns: 4;
-    column-gap: 20px;
+    column-gap: 10px;
 
   }
   .col_galeria .card_galeria{
     position: relative;
-    max-width: 310px;
+    max-width: 300px;
     height: 240px;
     background-color: #ffffff;
     margin: 20px 10px;
@@ -381,4 +380,83 @@
     .col_galeria{
         columns: 1;
     }
+} /* Fin imagenes del home */
+/* Galeria de fotos en usu en estilo rotativo*/
+#body_galeria{
+    background: #e0ffed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
+.col_galeria2{
+    position: relative;
+    width: 1400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 1px auto;
+    perspective: 1000px;
+    overflow: hidden;
+  }
+  .col_galeria2 .card_galeria2{
+    position: relative;
+    max-width: 300px;
+    height: 240px;
+    background-color: #ffffff;
+    margin: 20px 10px;
+    padding: 15px 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in-out; 
+    transform-style: preserve-3d;
+    animation: rotateAnimation 15s infinite linear; 
+  }
+  @keyframes rotateAnimation{
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(1turn);
+    }
+  }
+  .col_galeria2 .card_galeria2:hover{
+    height: 370px;
+  }
+  .col_galeria2 .card_galeria2 .card_img_gale2{
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    break-inside: avoid;
+    height: 250px;
+    top: -50px;
+    left: 0px;
+    z-index: 1;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transform: rotateY(0deg) translateZ(400px);
+  }
+  .col_galeria2 .card_galeria2 .card_img_gale2 img{
+    max-width: 100%;
+    border-radius: 3px;
+    transform: translateZ(50px);
+  }
+  .col_galeria2 .card_galeria2 .contenido_card2{
+    position: relative;
+    margin-top: 0px;
+    padding: 10px 25px;
+    text-align: center;
+    color: #111;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+  }
+  .col_galeria2 .card_galeria2:hover .contenido_card2{
+    visibility: visible;
+    opacity: 1;
+    margin-top: -30px;
+    transition-delay: 0.3s;
+  }
+

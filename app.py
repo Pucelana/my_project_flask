@@ -366,9 +366,9 @@ def comentarios_usu_crear():
 def home_usu():
     conexion = get_connection()
     cursor = conexion.cursor()
-    cursor.execute("SELECT * FROM productos ORDER BY created_at DESC LIMIT 6")
+    cursor.execute("SELECT * FROM productos ORDER BY created_at DESC LIMIT 8")
     imagenes = cursor.fetchall()
-    cursor.execute("SELECT * FROM posts_admin ORDER BY created_at DESC LIMIT 3")
+    cursor.execute("SELECT * FROM posts_admin ORDER BY created_at DESC LIMIT 4")
     posts2 = cursor.fetchall()   
     return render_template('usu/home_usu.html', imagenes=imagenes, posts2=posts2)
     

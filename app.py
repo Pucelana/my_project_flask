@@ -142,9 +142,9 @@ def login_usu():
             session['loggedin'] = True
             session['id'] = user2[0]
             session['usuario'] = user2[2]
-            session['email'] = user2[3]
+            session['email'] = user2[3]    
             print('Contraseñas coinciden')
-            return redirect(url_for('usu_galeria'))
+            return redirect(url_for('home_usu'))
         else:
             print('No coinciden las contraseñas')        
     elif request.method == 'POST':
@@ -330,6 +330,7 @@ def add_messages():
     conexion.commit()
     return render_template('usu/comentarios_usu.html')"""
 
+# Ruta de los comentarios de los posts
 @app.route('/comentarios_usu/')
 def comentarios_usu():
     conexion = get_connection()
@@ -349,6 +350,7 @@ def comentarios_usu():
     cursor.close()    
     return render_template('usu/comentarios_usu.html', mensajes=mensajes)
 
+# Ruta para crear los comentarios de los posts
 @app.route('/comentarios_usu_crear/', methods=['POST'])
 def comentarios_usu_crear():
     usuario = session['usuario']

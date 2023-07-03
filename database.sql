@@ -30,6 +30,7 @@ CREATE TABLE usuarios(
     usuario VARCHAR(255) NOT NULL,
     correo VARCHAR(255) NOT NULL,
     password TEXT NOT NULL,
+    es_administrador BOOLEAN NOT NULL DEFAULT FALSE,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 """ Tabla posts del administrador """
@@ -47,5 +48,4 @@ CREATE TABLE comentarios_usu(
     mensaje TEXT NOT NULL,
     usuario VARCHAR(255) NOT NULL,
     created_at DATE NOT NULL DEFAULT CURRENT_DATE
-)
-
+);

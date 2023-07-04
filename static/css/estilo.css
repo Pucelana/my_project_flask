@@ -306,6 +306,11 @@
     float: right;
   }/* Fin leer mas */
 /* Elaboración de las imagenes del home de usu */
+.img_gale img{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
   .col_galeria{
     position: relative;
     width: 1400px;
@@ -321,22 +326,23 @@
   }
   .col_galeria .card_galeria{
     position: relative;
-    max-width: 300px;
-    height: 240px;
+    max-width: 250px;
+    height: 250px;
     background-color: #ffffff;
     margin: 20px 10px;
-    padding: 15px 30px;
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
     transition: 0.3s ease-in-out; 
   }
   .col_galeria .card_galeria:hover{
-    height: 370px;
+    height: 380px;
   }
-  .col_galeria .card_galeria .card_img_gale{
+  .col_galeria .card_galeria .img_gale{
     position: relative;
     width: 100%;
+    height: auto;
     margin-bottom: 10px;
     break-inside: avoid;
     height: 250px;
@@ -345,8 +351,9 @@
     z-index: 1;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   }
-  .col_galeria .card_galeria .card_img_gale img{
+  .col_galeria .card_galeria .img_gale img{
     max-width: 100%;
+    height: auto;
     border-radius: 3px;
   }
   .col_galeria .card_galeria .contenido_card{
@@ -381,18 +388,28 @@
         columns: 1;
     }
 } /* Fin imagenes del home */
-/* Galeria de fotos en usu en estilo rotativo*/
-#body_galeria{
-    background: #e0ffed;
+/* Galeria de fotos en usu en estilo rotativo */
+/*#body_galeria{
+    background: linear-gradient(to right, #106e39,#032b14) ;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
 }
+.carousel{
+  width: 100%;
+  height: auto;
+  perspective: 1000px;
+  margin: 0 auto;
+}
+
 .col_galeria2{
     position: relative;
-    width: 1400px;
+    width: 1000px;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: rotate-carousel 10s infinite linear;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -401,21 +418,39 @@
     perspective: 1000px;
     overflow: hidden;
   }
+  .carousel-item{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  .carousel-item img{
+    width: 100%;
+    height: 100%;
+  }
+  @keyframes rotate-carousel{
+    0%{
+      transform: rotateY(0deg);
+    }
+    100%{
+      transform: rotateY(-360deg);
+    }
+  }
   .col_galeria2 .card_galeria2{
     position: relative;
-    max-width: 300px;
-    height: 240px;
+    max-width: 210px;
+    height: 250px;
     background-color: #ffffff;
     margin: 20px 10px;
     padding: 15px 30px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    transition: 0.3s ease-in-out; 
+    /*transition: 0.3s ease-in-out;
     transform-style: preserve-3d;
-    animation: rotateAnimation 15s infinite linear; 
+    animation: rotateAnimation 15s infinite linear;
   }
-  @keyframes rotateAnimation{
+@keyframes rotateAnimation{
     0%{
         transform: rotateY(0deg);
     }
@@ -436,12 +471,12 @@
     left: 0px;
     z-index: 1;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    transform: rotateY(0deg) translateZ(400px);
+    /*transform: rotateY(0deg) translateZ(400px);
   }
   .col_galeria2 .card_galeria2 .card_img_gale2 img{
     max-width: 100%;
     border-radius: 3px;
-    transform: translateZ(50px);
+    /*transform: translateZ(50px);
   }
   .col_galeria2 .card_galeria2 .contenido_card2{
     position: relative;
@@ -458,5 +493,9 @@
     opacity: 1;
     margin-top: -30px;
     transition-delay: 0.3s;
-  }
+  }*/
+
+
+
+  
 

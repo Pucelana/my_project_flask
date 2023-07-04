@@ -9,12 +9,12 @@
   </ol>
 </nav>
 </div>
-<div id="body_galeria">
-  <div class="col_galeria2 my-4">
+<div id="body_galeria" class="carousel">
+  <div class="col_galeria my-4">
   {% for img in imagenes %}
-  <div class="card card_galeria2" id="">
-    <span><img class="card-img-top card_img_gale2" src="/img/{{img[4]}}" alt="Title"></span>
-  <div class="contenido_card2">
+  <div class="card card_galeria carousel-item" id="">
+    <span><img class="card-img-top img_gale" src="/img/{{img[4]}}" alt="Title"></span>
+  <div class="contenido_card">
     <h5 class="card-title">{{ img[3] }}</h5>
     <h6 class="text-secondary">Usuario: <a href="mailto:{{ img[2] }}" class="text-decoration-none"><strong class="">{{ img[2] }}</strong></a></h6>
     <h6 class="text-secondary">Fecha: <strong class="">{{ img[8] }}</strong></h6>
@@ -23,4 +23,6 @@
   {% endfor %}
   </div>
 </div>
+<!-- Galeria de muestra -->
+
 {% endblock %}

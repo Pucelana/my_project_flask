@@ -33,9 +33,6 @@
 .texto_home_usu{
     color: #54c454;
 }
-.body_regis{
-    background-color: #529752;
-}
 .body_login{
     background-color: #e9f9ff;
 }
@@ -161,8 +158,7 @@
     left: 0;
     width: 50%;
     height: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
-    
+    background-color: rgba(0, 0, 0, 0.5); 
 }
 .card_bordes{
     background-color: #cdffe2;
@@ -171,105 +167,6 @@
 .card_post_usu{
     height: 14.3rem;
 }
-/* Estilo para la seccion de los dialogos 
-.dialog_box{
-    width: 400px;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-.dialog_text{
-    margin-bottom: 10px;
-}
-.dialog_boton{
-    background-color: #4CAF50;
-    color: #ffffff;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}*/
-/* Columnas galeria para diferentes dispositivos  */
-/*.card_galeria {
-    margin-left: 0.75em;
-    width: 12.25em;
-  }
-@media (max-width: 467px){
-    .card_galeria{
-        margin-left: 0.75em;
-        width: 11.8em;
-    }
-}   
-.card_img_gale{
-    width: 12.25em;
-    height: 12.50em;
-}
-@media (max-width: 467px){
-    .card_img_gale{
-        width: 11.70em;
-        height: 12em;
-    }
-}
-
-.col_galeria {
-    flex: 0 0 16.66667%; /* Ancho de las columnas 
-    max-width: 16.66667%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-left: 18px;
-  }  
-@media (min-width: 100px) and (max-width: 767px) {
-    .col_galeria {
-      flex: 0 0 50%; /* Columnas de ancho completo en pantallas pequeñas 
-      max-width: 50%;
-      padding-right: 5px;
-      padding-left: 5px;
-    }
-  }
-  
-  @media (min-width: 768px) and (max-width: 793px) {
-    .col_galeria {
-      flex: 0 0 33.333; /* Dos columnas en pantallas medianas 
-      max-width: 33.333%;
-      margin-left: 10px;
-      
-    }
-  }
-
-  @media (min-width: 794px) and (max-width: 991px) {
-    .col_galeria {
-      flex: 0 0 25%; /* Dos columnas en pantallas medianas 
-      max-width: 25%;
-      margin-left: 0px;
-      
-    }
-  }
-  
-  @media (min-width: 992px) and (max-width: 1199px) {
-    .col_galeria {
-      flex: 0 0 25%; /* Tres columnas en pantallas grandes 
-      max-width: 25%;
-      margin-left: 0px;
-      
-    }
-  }
-  
-  /*@media (min-width: 1200px) {
-    .col_galeria {
-      flex: 0 0 20%; /* Cuatro columnas en pantallas extra grandes
-      max-width: 20%;
-      margin-right: 5px;
-      margin-left: 5px;
-    }
-  }@media (min-width: 1201px) {
-    .col_galeria {
-      flex: 0 0 16.6666%; /* Cuatro columnas en pantallas extra grandes
-      max-width: 16.6666%;
-      margin-right: 5px;
-      margin-left: 5px;
-    }
-  }*/
   .card_coment{
     margin: 25px;
     padding: 10px;
@@ -388,112 +285,214 @@
         columns: 1;
     }
 } /* Fin imagenes del home */
-/* Galeria de fotos en usu en estilo rotativo */
-/*#body_galeria{
-    background: linear-gradient(to right, #106e39,#032b14) ;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-.carousel{
+/* Páginas de registro y sus formularios*/
+.img_registro{
+  min-height: 100vh;
   width: 100%;
-  height: auto;
-  perspective: 1000px;
-  margin: 0 auto;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.0)), url("/static/img2/escritorio.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.col_galeria2{
-    position: relative;
-    width: 1000px;
-    height: 100%;
-    transform-style: preserve-3d;
-    animation: rotate-carousel 10s infinite linear;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    margin: 1px auto;
-    perspective: 1000px;
-    overflow: hidden;
-  }
-  .carousel-item{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-  }
-  .carousel-item img{
-    width: 100%;
-    height: 100%;
-  }
-  @keyframes rotate-carousel{
-    0%{
-      transform: rotateY(0deg);
-    }
-    100%{
-      transform: rotateY(-360deg);
-    }
-  }
-  .col_galeria2 .card_galeria2{
-    position: relative;
-    max-width: 210px;
-    height: 250px;
-    background-color: #ffffff;
-    margin: 20px 10px;
-    padding: 15px 30px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    /*transition: 0.3s ease-in-out;
-    transform-style: preserve-3d;
-    animation: rotateAnimation 15s infinite linear;
-  }
-@keyframes rotateAnimation{
-    0%{
-        transform: rotateY(0deg);
-    }
-    100%{
-        transform: rotateY(1turn);
-    }
-  }
-  .col_galeria2 .card_galeria2:hover{
-    height: 370px;
-  }
-  .col_galeria2 .card_galeria2 .card_img_gale2{
-    position: relative;
-    width: 100%;
-    margin-bottom: 10px;
-    break-inside: avoid;
-    height: 250px;
-    top: -50px;
-    left: 0px;
-    z-index: 1;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    /*transform: rotateY(0deg) translateZ(400px);
-  }
-  .col_galeria2 .card_galeria2 .card_img_gale2 img{
-    max-width: 100%;
-    border-radius: 3px;
-    /*transform: translateZ(50px);
-  }
-  .col_galeria2 .card_galeria2 .contenido_card2{
-    position: relative;
-    margin-top: 0px;
-    padding: 10px 25px;
-    text-align: center;
-    color: #111;
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.3s ease-in-out;
-  }
-  .col_galeria2 .card_galeria2:hover .contenido_card2{
-    visibility: visible;
-    opacity: 1;
-    margin-top: -30px;
-    transition-delay: 0.3s;
-  }*/
+.form_regist{
+  min-height: 400px;
+  width: 75%;
+  border: 0.5px solid #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  backdrop-filter: blur(7px);
+  position: relative;
+  overflow: hidden;
+  color: white;
+  margin-top: 40px;
+}
+.h1_regist{
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.form_regist:hover .h1_regist{
+  color: #111;
+  z-index: 1;
+}
+.form_regist:hover{
+  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+.form_regist::after{
+  content: '';
+  position: absolute;
+  top: -130px;
+  left: 0;
+  height: 130px;
+  width: 100%;
+  background: white;
+  border-bottom-left-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  transition: 0.5s;
+}
+.form_regist:hover::after{
+  top: 0;
+  left: 0;
+  height: 130px;
+  width: 100%;
+  background: white;
+  border-bottom-left-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  transition: 0.5s;
+}
+.input_regist{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 5px 0;
+}
+.input_regist input{
+  width: 100%;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 5px 25px;
+  outline: none;
+}
+.btn_regist{
+  background-color: white;
+  color: #111;
+  font-weight: bold;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+.btn_regist:hover{
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+.text_login{
+  color: black;
+  font-weight: bold;
+}
+.text_login:hover{
+  color: white;
+  font-weight: bold;
+}
+.regist_migas{
+  margin-top: -680px;
+}/* Fin paginas de registro */
+/* Páginas de login y sus formularios*/
+.img_login{
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/static/img2/loguearse.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form_login{
+  min-height: 400px;
+  width: 75%;
+  border: 0.5px solid #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  backdrop-filter: blur(7px);
+  position: relative;
+  overflow: hidden;
+  color: white;
+  margin-top: 70px;
+}
+.h1_login{
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.form_login:hover .h1_login{
+  color: #111;
+  z-index: 1;
+}
+.form_login:hover{
+  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+.form_login::after{
+  content: '';
+  position: absolute;
+  top: -130px;
+  left: 0;
+  height: 130px;
+  width: 100%;
+  background: white;
+  border-bottom-left-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  transition: 0.5s;
+}
+.form_login:hover::after{
+  top: 0;
+  left: 0;
+  height: 130px;
+  width: 100%;
+  background: white;
+  border-bottom-left-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  transition: 0.5s;
+}
+.input_login{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 5px 0;
+}
+.input_login input{
+  width: 100%;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 5px 25px;
+  outline: none;
+}
+.btn_login{
+  background-color: white;
+  color: #111;
+  font-weight: bold;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+.btn_login:hover{
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+.text_regist{
+  color: black;
+  font-weight: bold;
+}
+.text_regist:hover{
+  color: white;
+  font-weight: bold;
+}
+.login_migas{
+  margin-top: -680px;
+}/* Fin paginas de registro */
 
 
 

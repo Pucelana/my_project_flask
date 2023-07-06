@@ -390,18 +390,49 @@
   margin-top: -680px;
 }/* Fin paginas de registro */
 /* Páginas de login y sus formularios*/
+html,body{
+  height: 100vh;
+}
 .img_login{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/static/img2/loguearse.jpg");
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+@media only screen and (max-width: 768px){
+  .img_login{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/static/img2/loguearse.jpg");
+    width: 100%;
+  }
+}
+/*.img_login{
   min-height: 100vh;
+  width: 100vw;
+  max-width: auto;
+  min-width: 320px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/static/img2/loguearse.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}*/
+
+
+/*.img_login{
   width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/static/img2/loguearse.jpg");
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+  }*/
 .form_login{
   min-height: 400px;
-  width: 75%;
+  width: 60%;
   border: 0.5px solid #999;
   display: flex;
   justify-content: center;
@@ -410,10 +441,11 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, .2);
   backdrop-filter: blur(7px);
-  position: relative;
+  position: absolute;
   overflow: hidden;
   color: white;
-  margin-top: 70px;
+  margin-top: 20px;
+  margin-left: 20%;
 }
 .h1_login{
   color: white;
@@ -491,7 +523,7 @@
   font-weight: bold;
 }
 .login_migas{
-  margin-top: -680px;
+  margin-top: -600px;
 }/* Fin paginas de registro */
 
 

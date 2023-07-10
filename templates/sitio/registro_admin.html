@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 </head>
 <body class="img_registro">
-  <div class="row">
+  <div class="">
   <div class="col-s-12 col-m-10 col-l-8">
     <nav aria-label="breadcrumb" class="ms-3 regist_migas">
       <ol class="breadcrumb">
@@ -24,11 +24,10 @@
   </div>
   </div>
   <section class="container">
-    
     <div class="">
         <!--<div class="card-header"></div>-->
-        <div class="col-s-12 col-m-12 col-l-12  form_regist">
-          <h1 class="h1_regist my-3 pt-5">Registro Administrador</h1>
+        <div class="col-s-8 col-m-8 col-l-8 offset-2  form_regist">
+          <h1 class="h1_regist my-3 pt-3">Registro Administrador</h1>
             <form action="/registro_admin/" method="POST" >
               <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
               {% if message is defined and message %}
@@ -37,7 +36,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
               {% endif %}
-                <div class="row">
+                <div class="row mt-2">
                 <div class="col-s-12 col-m-6 col-l-6 mb-3 input_regist">
                   <label for="nombre" class="form-label">Nombre</label>
                   <input type="text" name="nombre" id="nombre" class="form-control">

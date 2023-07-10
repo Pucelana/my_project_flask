@@ -1,7 +1,5 @@
 /* Páginas de registro y sus formularios*/
 .img_registro{
-    min-height: 70vh;
-    width: 100%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.0)), url("/static/img2/escritorio.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -18,25 +16,25 @@
     
   }
   .form_regist{
-    width: 80%;
+    /*width: 50%;*/
     border: 0.5px solid #999;
     display: flex;
     justify-content: center;
-    /*align-items: center;*/
+    align-items: center;
     flex-direction: column;
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     backdrop-filter: blur(7px);
     position: relative;
-    /*overflow: hidden;*/
+    overflow: hidden;
     color: white;
-    margin-top: 30px;
-    
+    margin-top: 0px;
   }
-  /*.h1_regist{
+  .h1_regist{
     color: white;
     font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
   }
   .form_regist:hover .h1_regist{
     color: #111;
@@ -60,7 +58,7 @@
   .form_regist:hover::after{
     top: 0;
     left: 0;
-    height: 130px;
+    height: 110px;
     width: 100%;
     background: white;
     border-bottom-left-radius: 50% 50%;
@@ -72,7 +70,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    margin: 5px 0;
+    /*margin: 5px 0;*/
   }
   .input_regist input{
     width: 100%;
@@ -109,7 +107,7 @@
     font-weight: bold;
   }
   .regist_migas{
-    margin-top: 0px;
+    margin-top: 2px;
     
   }/* Fin paginas de registro */
 .alerta_regis{

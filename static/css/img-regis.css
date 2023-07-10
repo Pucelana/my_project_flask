@@ -1,7 +1,8 @@
 /* Páginas de registro y sus formularios*/
 .img_registro{
+    width: 100vw; 
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.0)), url("/static/img2/escritorio.jpg");
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -12,8 +13,9 @@
   @media only screen and (max-width: 767px){
     .img_registro{
       background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.0)), url("/static/img2/escritorio2.jpg");
+      background-size: cover;
+      background-attachment: fixed;
     }
-    
   }
   .form_regist{
     /*width: 50%;*/
@@ -25,16 +27,21 @@
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     backdrop-filter: blur(7px);
-    position: relative;
+    position: absolute;
     overflow: hidden;
     color: white;
-    margin-top: 0px;
+    margin-top: 45px;
   }
   .h1_regist{
     color: white;
     font-size: 2.5rem;
     margin-bottom: 1rem;
     text-align: center;
+  }
+  @media only screen and (max-width: 767px){
+    .h1_regist{
+      font-size: 1.5rem;
+    }
   }
   .form_regist:hover .h1_regist{
     color: #111;

@@ -1,0 +1,114 @@
+/* Páginas de login y sus formularios*/
+/*html,body{
+    height: 100vh;
+  }*/
+  .img_login{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/static/img2/loguearse.jpg");
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+  @media only screen and (max-width: 768px){
+    .img_login{
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/static/img2/loguearse.jpg");
+      width: 100%;
+    }
+  }
+  .form_login{
+    min-height: 400px;
+    width: 60%;
+    border: 0.5px solid #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(7px);
+    position: absolute;
+    overflow: hidden;
+    color: white;
+    margin-top: 20px;
+    margin-left: 20%;
+  }
+  .h1_login{
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .form_login:hover .h1_login{
+    color: #111;
+    z-index: 1;
+  }
+  .form_login:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+  }
+  .form_login::after{
+    content: '';
+    position: absolute;
+    top: -130px;
+    left: 0;
+    height: 130px;
+    width: 100%;
+    background: white;
+    border-bottom-left-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    transition: 0.5s;
+  }
+  .form_login:hover::after{
+    top: 0;
+    left: 0;
+    height: 130px;
+    width: 100%;
+    background: white;
+    border-bottom-left-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    transition: 0.5s;
+  }
+  .input_login{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 5px 0;
+  }
+  .input_login input{
+    width: 100%;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 5px 25px;
+    outline: none;
+  }
+  .btn_login{
+    background-color: white;
+    color: #111;
+    font-weight: bold;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+  .btn_login:hover{
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+  .text_regist{
+    color: black;
+    font-weight: bold;
+  }
+  .text_regist:hover{
+    color: white;
+    font-weight: bold;
+  }
+  .login_migas{
+    margin-top: -600px;
+  }/* Fin paginas de registro */

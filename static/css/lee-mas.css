@@ -1,0 +1,17 @@
+/* Para que el texto no aparezca entero y se pueda usar leer mas */
+.card_coment .coment_text{
+    max-height: 80px;
+    overflow: hidden;
+  }
+  .card_coment .leer_mas{
+    display: none;
+  }
+  .card_coment.expand .coment_text{
+    max-height: none;
+  }
+  .card_coment.expand .leer_mas{
+    display: none;
+  }
+  .leer_mas{
+    float: right;
+  }/* Fin leer mas */

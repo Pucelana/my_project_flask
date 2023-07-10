@@ -1,0 +1,120 @@
+/* Páginas de registro y sus formularios*/
+.img_registro{
+    min-height: 70vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.0)), url("/static/img2/escritorio.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    /*display: flex;
+    justify-content: center;*/
+    /*align-items: center;*/
+  }
+  @media only screen and (max-width: 767px){
+    .img_registro{
+      background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.0)), url("/static/img2/escritorio2.jpg");
+    }
+    
+  }
+  .form_regist{
+    width: 80%;
+    border: 0.5px solid #999;
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(7px);
+    position: relative;
+    /*overflow: hidden;*/
+    color: white;
+    margin-top: 30px;
+    
+  }
+  /*.h1_regist{
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .form_regist:hover .h1_regist{
+    color: #111;
+    z-index: 1;
+  }
+  .form_regist:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+  }
+  .form_regist::after{
+    content: '';
+    position: absolute;
+    top: -130px;
+    left: 0;
+    height: 130px;
+    width: 100%;
+    background: white;
+    border-bottom-left-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    transition: 0.5s;
+  }
+  .form_regist:hover::after{
+    top: 0;
+    left: 0;
+    height: 130px;
+    width: 100%;
+    background: white;
+    border-bottom-left-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    transition: 0.5s;
+  }
+  .input_regist{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 5px 0;
+  }
+  .input_regist input{
+    width: 100%;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 5px 25px;
+    outline: none;
+  }
+  .btn_regist{
+    background-color: white;
+    color: #111;
+    font-weight: bold;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+  .btn_regist:hover{
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+  .text_login{
+    color: black;
+    font-weight: bold;
+  }
+  .text_login:hover{
+    color: white;
+    font-weight: bold;
+  }
+  .regist_migas{
+    margin-top: 0px;
+    
+  }/* Fin paginas de registro */
+.alerta_regis{
+    font-size: 16px;
+    color: #ff0000;
+    background-color: #ffa3a3;
+    transition: ease-in .4s;
+}

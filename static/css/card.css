@@ -1,0 +1,25 @@
+.card_bordes{
+    background-color: #cdffe2;
+    padding: 2px;
+}
+.card_post_usu{
+    height: 14.3rem;
+}
+.card_coment{
+    margin: 25px;
+    padding: 10px;
+    position: relative;
+    width: 40%;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #f5efef;
+}
+.card_coment:after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    border-top: 20px solid blue;
+    border-top-color: inherit;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+}

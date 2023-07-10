@@ -1,0 +1,19 @@
+#body_1{
+    background: linear-gradient( 90deg, #a8ffa8, #c2fdc2, #e6ffe6); 
+}
+#body_2{
+    background:  #e0ffed; 
+}
+#body-2{
+    background:  #e0ffed; 
+}
+#body_admin_home{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/img2/pexels-fallon-michael-3551711.jpg"); 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: 574px; 
+}
+.body_login{
+    background-color: #e9f9ff;
+}

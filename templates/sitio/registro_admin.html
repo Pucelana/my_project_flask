@@ -12,22 +12,24 @@
   <link href="{{ url_for('static', filename='css/estilo.css') }}" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 </head>
-<body class="float-sm-start img_registro">
-  <!--<div class="img_registro">
-    <img src="/static/img2/escritorio.jpg" alt="">
-  </div>--> 
-  <nav aria-label="breadcrumb" class="ms-3 regist_migas">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/" class="text-decoration-none text-white fw-bold">Home</a></li>
-      <li class="breadcrumb-item active text-second fw-bold" aria-current="page">Registro Administrador</li>
-    </ol>
-  </nav>
-  <section class="container-lg form_regist">
-    <h1 class="h1_regist my-3 pt-5">Registro Administrador</h1>
-    <div class="col-8">
+<body class="img_registro">
+  <div class="row">
+  <div class="col-s-12 col-m-10 col-l-8">
+    <nav aria-label="breadcrumb" class="ms-3 regist_migas">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/" class="text-decoration-none text-white fw-bold">Home</a></li>
+        <li class="breadcrumb-item active text-second fw-bold" aria-current="page">Registro Administrador</li>
+      </ol>
+    </nav>
+  </div>
+  </div>
+  <section class="container">
+    
+    <div class="">
         <!--<div class="card-header"></div>-->
-        <div class="">
-            <form action="/registro_admin/" method="POST">
+        <div class="col-s-12 col-m-12 col-l-12  form_regist">
+          <h1 class="h1_regist my-3 pt-5">Registro Administrador</h1>
+            <form action="/registro_admin/" method="POST" >
               <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
               {% if message is defined and message %}
                 <div class="alert alerta_regis alert-dismissible fade show my-3" role="alert">
@@ -36,50 +38,50 @@
                 </div>
               {% endif %}
                 <div class="row">
-                <div class="col-6 mb-3 input_regist">
+                <div class="col-s-12 col-m-6 col-l-6 mb-3 input_regist">
                   <label for="nombre" class="form-label">Nombre</label>
                   <input type="text" name="nombre" id="nombre" class="form-control">
                 </div>
-                <div class="col-6 mb-3 input_regist">
+                <div class="col-s-12 col-m-6 col-l-6 mb-3 input_regist">
                   <label for="primerApellido" class="form-label">Primer Apellido</label>  
                   <input type="text" name="primerApellido" id="primerApellido" class="form-control">
                 </div>
                 </div>
                 <div class="row">
-                <div class="col-6 mb-3 input_regist">
+                <div class="col-s-12 col-m-6 col-l-6  mb-3 input_regist">
                   <label for="segundoApellido" class="form-label">Segundo Apellido</label>  
                   <input type="text" name="segundoApellido" id="segundoApellido" class="form-control">
                 </div>
-                <div class="col-6 mb-3 input_regist">
+                <div class="col-s-12 col-m-6 col-l-6  mb-3 input_regist">
                   <label for="usuario" class="form-label">Usuario</label>
                   <input type="text" name="usuario" id="usuario" class="form-control">
                 </div>
                 </div>
                 <div class="row">
-                <div class="col-6 mb-3 input_regist">
+                <div class="col-s-12 col-m-6 col-l-6  mb-3 input_regist">
                   <label for="email" class="form-label">Email</label>  
                   <input type="email" name="email" id="email" class="form-control">
                 </div>
-                <div class="col-6 mb-3 input_regist">
+                <div class="col-s-12 col-m-6 col-l-6  mb-3 input_regist">
                   <label for="provincia" class="form-label">Provincia</label>
                   <input type="text" name="provincia" id="provincia" class="form-control">
                 </div>
                 </div>
                 <div class="row">
-                <div class="col-6 mb-3 input_regist">
+                <div class="col-s-12 col-m-6 col-l-6  mb-3 input_regist">
                   <label for="categoria" class="form-label">Categoría</label>  
                   <input type="text" name="categoria" id="categoria" class="form-control">
                 </div>
-                <div class="col-6 mb-3 input_regist">
+                <div class="col-s-12 col-m-6 col-l-6  mb-3 input_regist">
                   <label for="password" class="form-label">Contraseña</label>  
                   <input type="password" name="password" id="password" class="form-control">
                 </div>
                 </div>
-                <div class="row">
-                    <div class="col-6">
+                <div class="row justify-content-center">
+                    <div class="col-s-12 col-m-6 col-l-6 ">
                         <button class="btn_regist fs-5">Registro</button>
                     </div>
-                    <div class="col-6">
+                    <div class="col-s-12 col-m-6 col-l-6 ">
                       <p>¿Tienes cuenta?<a href="/login_admin/" class="ms-2 text-decoration-none fs-5 text_login">Login</a></p>
                     </div>
                 </div>
@@ -88,7 +90,6 @@
         <div class="card-footer text-muted"></div>
     </div>
   </section>
-  <!--</div>-->
   
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

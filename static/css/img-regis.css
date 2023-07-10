@@ -27,10 +27,9 @@
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     backdrop-filter: blur(7px);
-    position: absolute;
+    position: relative;
     overflow: hidden;
     color: white;
-    margin-top: 45px;
   }
   .h1_regist{
     color: white;
@@ -38,6 +37,7 @@
     margin-bottom: 1rem;
     text-align: center;
   }
+ 
   @media only screen and (max-width: 767px){
     .h1_regist{
       font-size: 1.5rem;
@@ -94,7 +94,7 @@
     border: 1px solid white;
     border-radius: 8px;
     padding: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
   }
   .btn_regist:hover{
     background-color: transparent;
@@ -103,7 +103,7 @@
     border: 1px solid white;
     border-radius: 8px;
     padding: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
   }
   .text_login{
     color: black;

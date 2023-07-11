@@ -1,21 +1,9 @@
 /* Páginas de registro y sus formularios*/
 .img_registro{
-    width: 100vw; 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.0)), url("/static/img2/escritorio.jpg");
-    background-position: center center;
+    width: min-content;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    /*display: flex;
-    justify-content: center;*/
-    /*align-items: center;*/
-  }
-  @media only screen and (max-width: 767px){
-    .img_registro{
-      background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.0)), url("/static/img2/escritorio2.jpg");
-      background-size: cover;
-      background-attachment: fixed;
-    }
+    background: url(../img2/escritorio.jpg) no-repeat center center fixed;
+    background-size: 100% 100%;  
   }
   .form_regist{
     /*width: 50%;*/
@@ -30,6 +18,21 @@
     position: relative;
     overflow: hidden;
     color: white;
+  }
+  .form_regist_usu{
+    /*width: 50%;*/
+    border: 0.5px solid #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(7px);
+    position: absolute;
+    overflow: hidden;
+    color: white;
+    margin-top: -45px;
   }
   .h1_regist{
     color: white;

@@ -4,13 +4,13 @@
     font-size: 4.5em;
 }
 /* Estilo de h1_sit_home para pantallas tablet */
-@media(max-width: 768px){
+@media(min-width: 767px){
     #h1_sit_home{
         font-size: 3.25em;
     }
 }
 /* Estilo de h1_sit_home para pantallas moviles */
-@media(max-width: 468px){
+@media(max-width: 767px){
     #h1_sit_home{
         font-size: 2em;
     }

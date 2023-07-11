@@ -23,10 +23,16 @@
   <section class="container">
     <div class="">
         <!--<div class="card-header"></div>-->
-        <div class="col-xs-10 col-s-8 col-m-10 col-l-10 offset-1 form_regist">
+        <div class="col-xs-9 col-s-9 col-m-10 col-l-10 offset-0 form_regist_usu">
           <h1 class="h1_regist my-3 pt-3">Registro Usuario</h1>
             <form action="/registro_usu/" method="POST">
               <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+              {% if message is defined and message %}
+                <div class="alert alerta_regis alert-dismissible fade show my-3" role="alert">
+                  <strong class="">{{ message }}</strong>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              {% endif %}
                 <div class="row mt-2">
                 <div class="col-s-12 col-m-6 col-l-6 mb-3 input_regist">
                   <label for="nombre" class="form-label">Nombre Completo</label>

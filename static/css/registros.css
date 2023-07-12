@@ -117,9 +117,39 @@
     overflow: hidden;
     color: #ffffff;
     margin-bottom: 0px;
-    display: flex;
+    display: inline-flex ;
     justify-content: center;
     align-items: center;
+    margin-top: -20px;
+}
+.form_regist_usu:hover .h1_regist{
+    color: #111;
+    z-index: 1;
+}
+.form_regist_usu:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+.form_regist_usu::after{
+    content: '';
+    position: absolute;
+    top: -130px;
+    left: 0;
+    height: 130px;
+    width: 100%;
+    background: #ffffff;
+    border-bottom-left-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    transition: 0.5s;
+}
+.form_regist_usu:hover::after{
+    top: 0;
+    left: 0;
+    height: 110px;
+    width: 100%;
+    background: white;
+    border-bottom-left-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    transition: 0.5s;
 }
 /* Fin paginas de registro */
 .alerta_regis{

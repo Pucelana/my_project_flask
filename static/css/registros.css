@@ -1,71 +1,54 @@
-/* Páginas de registro y sus formularios*/
 .img_registro{
-    width: min-content;
+    background: url(../img2/escritorio.jpg);
     background-repeat: no-repeat;
-    background: url(../img2/escritorio.jpg) no-repeat center center fixed;
-    background-size: 100% 100%;  
-  }
-  .form_regist{
-    /*width: 50%;*/
+    background-size: 100% 100%;
+    background-attachment: fixed;  
+}
+.form_regist{
     border: 0.5px solid #999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(7px);
+    flex-direction: column;
     position: relative;
     overflow: hidden;
-    color: white;
-  }
-  .form_regist_usu{
-    /*width: 50%;*/
-    border: 0.5px solid #999;
+    color: #ffffff;
+    margin-bottom: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    backdrop-filter: blur(7px);
-    position: absolute;
-    overflow: hidden;
-    color: white;
-    margin-top: -45px;
-  }
-  .h1_regist{
-    color: white;
+}
+.h1_regist{
+    color: #ffffff;
     font-size: 2.5rem;
     margin-bottom: 1rem;
     text-align: center;
-  }
- 
-  @media only screen and (max-width: 767px){
+}
+@media only screen and (max-width: 767px){
     .h1_regist{
       font-size: 1.5rem;
     }
-  }
-  .form_regist:hover .h1_regist{
+}
+.form_regist:hover .h1_regist{
     color: #111;
     z-index: 1;
-  }
-  .form_regist:hover{
+}
+.form_regist:hover{
     box-shadow: 0 0 10px rgba(0, 0, 0, .3);
-  }
-  .form_regist::after{
+}
+.form_regist::after{
     content: '';
     position: absolute;
     top: -130px;
     left: 0;
     height: 130px;
     width: 100%;
-    background: white;
+    background: #ffffff;
     border-bottom-left-radius: 50% 50%;
     border-bottom-right-radius: 50% 50%;
     transition: 0.5s;
-  }
-  .form_regist:hover::after{
+}
+.form_regist:hover::after{
     top: 0;
     left: 0;
     height: 110px;
@@ -74,23 +57,22 @@
     border-bottom-left-radius: 50% 50%;
     border-bottom-right-radius: 50% 50%;
     transition: 0.5s;
-  }
-  .input_regist{
+}
+.input_regist{
     width: 50%;
     display: flex;
     flex-direction: column;
     position: relative;
-    /*margin: 5px 0;*/
-  }
-  .input_regist input{
+}
+.input_regist input{
     width: 100%;
     background: transparent;
     border: 1px solid white;
     border-radius: 30px;
     padding: 5px 25px;
     outline: none;
-  }
-  .btn_regist{
+}
+.btn_regist{
     background-color: white;
     color: #111;
     font-weight: bold;
@@ -98,8 +80,8 @@
     border-radius: 8px;
     padding: 5px;
     margin-bottom: 5px;
-  }
-  .btn_regist:hover{
+}
+.btn_regist:hover{
     background-color: transparent;
     color: white;
     font-weight: bold;
@@ -107,16 +89,42 @@
     border-radius: 8px;
     padding: 5px;
     margin-bottom: 5px;
-  }
-  .text_login{
+}
+.text_login{
     color: black;
     font-weight: bold;
-  }
-  .text_login:hover{
+}
+.text_login:hover{
     color: white;
     font-weight: bold;
-  }
-  .regist_migas{
+}
+.regist_migas{
     margin-top: 2px;
-  }  
-
+}
+@media only screen and (max-width: 767px){
+    .regist_migas{
+      font-size: 0.75rem;
+    }
+}
+/* Formulario registro usuario */
+.form_regist_usu{
+    border: 0.5px solid #999;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(7px);
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Fin paginas de registro */
+.alerta_regis{
+    font-size: 16px;
+    color: #ff0000;
+    background-color: #ffa3a3;
+    transition: ease-in .4s;
+}

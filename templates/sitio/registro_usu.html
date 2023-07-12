@@ -11,11 +11,11 @@
   <!-- CSS -->
   <link href="{{ url_for('static', filename='css/estilo.css') }}" rel="stylesheet" type="text/css">  
 </head>
-<body class="img_registro">
+<body class="container-fluid img_registro">
 <div class="col-s-12 col-m-10 col-l-8">  
   <nav aria-label="breadcrumb" class="ms-3 mb-5 regist_migas">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/" class="text-decoration-none text-white fw-bold">Home</a></li>
+      <li class="breadcrumb-item"><a href="/" class="text-decoration-none text-white fw-bold">Salir</a></li>
       <li class="breadcrumb-item active text-second fw-bold mb-5" aria-current="page">Registro Usuario</li>
     </ol>
   </nav>
@@ -23,7 +23,7 @@
   <section class="container">
     <div class="">
         <!--<div class="card-header"></div>-->
-        <div class="col-xs-9 col-s-9 col-m-10 col-l-10 offset-0 form_regist_usu">
+        <div class="col-xs-10 col-s-10 col-m-10 col-l-10 offset-1 form_regist_usu">
           <h1 class="h1_regist my-3 pt-3">Registro Usuario</h1>
             <form action="/registro_usu/" method="POST">
               <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
@@ -34,30 +34,30 @@
                 </div>
               {% endif %}
                 <div class="row mt-2">
-                <div class="col-s-12 col-m-6 col-l-6 mb-3 input_regist">
+                <div class="col-s-6 col-m-6 col-l-6 mb-1 input_regist">
                   <label for="nombre" class="form-label">Nombre Completo</label>
                   <input type="text" name="nombre" id="nombre" class="form-control">
                 </div>
-                <div class="col-s-12 col-m-6 col-l-6 mb-3 input_regist">
+                <div class="col-s-6 col-m-6 col-l-6 mb-1 input_regist">
                   <label for="usuario" class="form-label">Usuario</label>  
                   <input type="text" name="usuario" id="usuario" class="form-control">
                 </div>
                 </div>
                 <div class="row">
-                <div class="col-s-12 col-m-6 col-l-6 mb-3 input_regist">
+                <div class="col-s-6 col-m-6 col-l-6 mb-1 input_regist">
                   <label for="email" class="form-label">Email</label>
                   <input type="email" name="email" id="email" class="form-control">
                 </div>
-                <div class="col-s-12 col-m-6 col-l-6 mb-3 input_regist">
+                <div class="col-s-6 col-m-6 col-l-6 mb-1 input_regist">
                   <label for="password" class="form-label">Contraseña</label>  
                   <input type="password" name="password" id="password" class="form-control">
                 </div>
                 </div>        
                 <div class="row">
-                    <div class="col-s-12 col-m-6 col-l-6">
+                    <div class="col-xs-6 col-s-6 col-m-6 col-l-6">
                         <button class="btn_regist fs-5">Registro</button>
                     </div>
-                    <div class="col-s-12 col-m-6 col-l-6">
+                    <div class="col-xs-6 col-s-6 col-m-6 col-l-6">
                       <p>¿Tienes cuenta?<a href="/login_usu/" class="ms-2 text-decoration-none fs-5 text_login">Login</a></p>
                     </div>
                 </div>

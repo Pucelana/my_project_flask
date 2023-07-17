@@ -7,11 +7,11 @@
       <li class="breadcrumb-item active" aria-current="page">Mis posts</li>
     </ol>
   </nav>
-<div class="col-4 offset-4 mb-4">
+<div class="d-flex justify-content-center mb-4">
 <button onclick="mostrarFormulario()" class="btn btn-success text-center fs-3">Crear mis posts</button>
 </div>
 <!-- Creación del formulario para la creación del post -->
-<div class="col-lg-8 offset-2" id="form_post_admin">
+<div class="col-l-8 offset-2" id="form_post_admin">
   <div class="card">
     <form method="POST" action="/crear_post_admin/">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
@@ -30,10 +30,10 @@
       </div>
       <div class="card-footer">
         <div class="row d-flex justify-content-center">
-          <div class="col-4">
+          <div class="col-l-4">
             <button type="submit" class="btn btn-info text-white">Guardar Post</button>
           </div> 
-          <div class="col-4">
+          <div class="col-l-4">
             <button type="submit" class="btn btn-secondary"><a href="" class="text-decoration-none text-white">Volver</a></button>
           </div>
         </div> 
@@ -46,7 +46,7 @@
   <div class="container-lg my-3">
    <div class="row">
     {% for post in posts %}
-    <div class="col-lg-6">
+    <div class="col-l-6">
     <div class="card mb-3">
       <div class="card_bordes">
         <h5 class="text-center">{{ session.admin }}</h5>
@@ -57,14 +57,14 @@
       </div>
       <div class="card_bordes">
         <div class="row">
-          <div class="col-7">
-            <h6 class="ps-2 pt-2">Fecha de publicación: <strong>{{ post.created_at }}</strong></h6>
+          <div class="col-l-7 text-center">
+            <h6 class="pt-2">Fecha de publicación: <strong>{{ post.created_at }}</strong></h6>
           </div>
-          <div class="col-2">
-            <button type="submit" id="btn-edit{{ post.id_posts }}" class="btn btn-primary text-center" data-bs-toggle="modal" data-bs-target="#modal{{ post.id_posts }}">Editar</button>
+          <div class="col-l-2 text-center">
+            <button type="submit" id="btn-edit{{ post.id_posts }}" class="border-0 card_bordes" data-bs-toggle="modal" data-bs-target="#modal{{ post.id_posts }}"><img src="/static/iconos/editar.png" class="editar"><p class="p_editar">Editar</p></button>
           </div>
-          <div class="col-3">
-            <button type="submit" class="btn btn-danger"><a href="{{ url_for('eliminar_post', id=post.id_posts) }}" class="text-decoration-none text-white">Eliminar</a></button>
+          <div class="col-l-2 text-center">
+            <button type="submit" class="border-0 card_bordes"><a href="{{ url_for('eliminar_post', id=post.id_posts) }}" class="text-decoration-none text-white"><img src="/static/iconos/papelera.png" class="papelera"><p class="p_papelera">Borrar</p></a></button>
           </div>
         </div>
       </div>

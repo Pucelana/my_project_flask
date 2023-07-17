@@ -1,3 +1,4 @@
+/* Icono papelera */
 .papelera{
     width: 35px;
     height: 35px;
@@ -6,6 +7,30 @@
 .papelera:hover{
     filter: contrast(20%) grayscale(0%) hue-rotate(0deg) saturate(0%);
 }
+.p_papelera{
+    visibility: hidden;
+}
+button:hover .p_papelera{
+    visibility: visible;
+    color: red;
+}
+/* Icono editar */
+.editar{
+    width: 35px;
+    height: 35px;
+    filter: contrast(20%) sepia(1) hue-rotate(180deg) saturate(1500%);
+}
+.editar:hover{
+    filter: contrast(20%) grayscale(0%) hue-rotate(0deg) saturate(0%);
+}
+.p_editar{
+    visibility: hidden;
+}
+button:hover .p_editar{
+    visibility: visible;
+    color: blue;
+}
+/* Icono dialogos */
 .btn-dialogos{
     background-color: #cdffe2;
 }

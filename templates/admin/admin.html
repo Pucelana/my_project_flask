@@ -9,7 +9,7 @@
 </nav>
 <h1 class="text-center text-secondary fw-bold my-4">Agrega tus productos</h1>
 <div class="container-lg">
-  <div class="card shadow mb-4">
+  <div class=" card shadow mb-4">
     <div class="card-body align-items-center">
       <form action="/admin/guardar" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
@@ -40,41 +40,43 @@
           </div>
       </form>
       <!-- Tabla -->
+      <div class="table-responsive-lg">
       <table class="table table-border">
+        <div class="row">
         <thead>
           <tr>
-            <th class="text-center">Producto</th>
-            <th class="text-center">Imágen</th>
-            <th class="text-center">URL Descarga</th>              
-            <th class="text-center">Género</th>
-            <th class="text-center">Descripción</th>
-            <th class="text-center">Fecha</th>
-            <th class="text-center">Posts</th>
+            <th class="col-xs-2 col-s-2 col-m-2 col-l-2 text-center">Producto</th>
+            <th class="col-xs-1 col-s-1 col-m-1 col-l-1 text-center">Imágen</th>
+            <th class="col-xs-1 col-s-1 col-m-1 col-l-1 text-center">URL Descarga</th>              
+            <th class="col-xs-2 col-s-2 col-m-2 col-l-2 text-center">Género</th>
+            <th class="col-xs-3 col-s-3 col-m-3 col-l-3 text-center">Descripción</th>
+            <th class="col-xs-1 col-s-1 col-m-1 col-l-1 text-center">Fecha</th>
+            <th class="col-xs-2 col-s-2 col-m-2 col-l-2 text-center">Posts</th>
             <th></th>
           </tr>
         </thead>
+        </div>
         <tbody>
           {% for p in productos %}
             <tr>
-              <td class="text-center pt-4">{{ p.producto }}</td>
-              <td class="text-center">
+              <td class="col-xs-2 col-s-2 col-m-2 col-l-2 text-center pt-4">{{ p.producto }}</td>
+              <td class="col-xs-1 col-s-1 col-m-1 col-l-1 text-center">
                 <img width="60" src="/img/{{ p.imagen}}" class="img-fluid" alt="">
               </td>
-              <td class="text-center pt-4">
+              <td class="col-xs-1 col-s-1 col-m-1 col-l-1 text-center pt-4">
                 <button type="submit" class="btn btn-info"><a href="{{ p.url }}" target="_blank" class="text-decoration-none">+Info</a></button>
               </td>
-              <td class="text-center pt-4">{{ p.genero }}</td>
-              <td class="text-center pt-4">{{ p.descripcion }}</td>
-              <td class="text-center pt-4">{{ p.created_at }}</td>
-              <td class="text-center pt-4">
+              <td class="col-xs-2 col-s-2 col-m-2 col-l-2 text-center pt-4">{{ p.genero }}</td>
+              <td class="col-xs-3 col-s-3 col-m-3 col-l-3 text-center pt-4">{{ p.descripcion }}</td>
+              <td class="col-xs-1 col-s-1 col-m-1 col-l-1 text-center pt-4">{{ p.created_at }}</td>
+              <td class="col-xs-1 col-s-1 col-m-1 col-l-1 text-center pt-4">
                 <button type="submit" class="btn btn-primary" id="btn-edit" data-bs-toggle="modal" data-bs-target="#modal"><a href="/admin_posts/" class="text-decoration-none text-white">Posts</a></button>  
               </td>
-              <td class="pt-4">
+              <td class="col-xs-1 col-s-1 col-m-1 col-l-1 text-center pt-4">
                 <form action="/admin/borrar" method="POST">
                   <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                   <input type="hidden" name="id" id="id" value="{{ p.id_productos }}">
                   <button type="submit" class="border-0 bg-white"><img src="static/iconos/papelera.png" class="papelera mb-5" alt="papelera"></button>
-                  
                 </form>
               </td>
             </tr>
@@ -108,6 +110,7 @@
           {% endfor %}
         </tbody>
       </table>
+      </div>
     </div>
   </div>
 </div>                

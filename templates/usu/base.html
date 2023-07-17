@@ -13,8 +13,12 @@
 </head>
 <body id="body_2">
     <header class="nav-admin shadow">
+      <!--<nav class="navbar navbar-expand-s navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+          <span class="navbar-toggler-icon"></span>
+        </button>-->
         <div class="container row p-2 align-items-center">
-          <div class="col-9">
+          <div class="col-m- col-l-9">
             <nav class="nav">
               <a class="nav-link nav-a fw-bold fs-5" href="/home_usu/">Home</a>
               <a class="nav-link nav-a fw-bold fs-5" href="/usu/galeria">Galeria</a>
@@ -23,10 +27,11 @@
               <a class="nav-link nav-a fw-bold fs-5" href="/">Cerrar Sesión</a>
             </nav>
           </div>
-          <div class="col-3">
+          <div class="col-l-3">
             <h5 class="text-center text-secondary">Hola Usuari@: <strong class="text-dark">{{ session.usuario }}</strong></h5>
           </div>
         </div>
+      <!--</nav>-->
     </header>
   {% block contenido %}
   {% endblock %}

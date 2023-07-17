@@ -25,7 +25,7 @@
   <h3 class="text-center texto_home_usu">Últimos post publicados</h3>
   <div class="row my-4">
     {% for post in posts2 %}
-    <div class="col-lg-4">
+    <div class="col-l-4">
     <div class="card card_post_usu mb-3">
       <div class="card_bordes">
         <h6 class="text-center">{{ post[2] }}</h6>
@@ -36,11 +36,11 @@
       </div>
       <div class="card_bordes">
         <div class="row">
-          <div class="col-7">
+          <div class="col-l-8">
             <h6 class="text-center pt-2">Publicado: <strong>{{ post[5] }}</strong></h6>
           </div>
-          <div class="col-5">
-            <button type="submit" class="btn btn-success"><a href="/comentarios_usu/" class="text-decoration-none text-white">Comentarios</a></button>
+          <div class="col-l-4">
+            <button type="submit" class="btn-dialogos px-4 border-0"><a href="/comentarios_usu/" class="text-decoration-none text-white"><img src="/static/iconos/dialogos.png" class="dialogos" alt="dialogos"></a></button>
           </div>
         </div>
       </div>

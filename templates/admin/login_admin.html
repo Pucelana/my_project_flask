@@ -11,50 +11,47 @@
   <!-- CSS -->
   <link href="{{ url_for('static', filename='css/estilo.css') }}" rel="stylesheet" type="text/css"> 
 </head>
-<body class="float-sm-start img_login">
-  <!--<div class="img_login">
-    <img src="/static/img2/loguearse.jpg" alt="">
-  </div>-->
-  <nav aria-label="breadcrumb" class="login_migas">
+<body class="container-fluid img_login">
+  <div class="col-s-10 col-m-10 col-l-8">
+  <nav aria-label="breadcrumb" class="ms-3 mb-5 login_migas">
     <ol class="breadcrumb my-2 mx-4">
       <li class="breadcrumb-item"><a href="/" class="text-white text-decoration-none fw-bold">Home</a></li>
       <li class="breadcrumb-item active text-second fw-bold" aria-current="page">Login Administrador</li>
     </ol>
   </nav>
-    <div class="container-lg form_login">
-      <h1 class="h1_login my-3 pt-5">LOGIN</h1>
-      <div class="col-8">
-         <div class="mb-5">
-          <div class="">
-              <form action="/login_admin/" method="POST">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                  {% if message is defined and message %}
-                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                      <strong>{{ message }}</strong>
-                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-                  {% endif %}
-                  <div class="mb-3 input_login">
-                      <label for="email" class="form-label">Email:</label>
-                      <input type="text" class="form-control" name="email" id="email">
-                  </div>
-                  <div class="mb-3 input_login">
-                      <label for="password" class="form-label">Contraseña:</label>
-                      <input type="password" class="form-control" name="password" id="password">
-                  </div>
-                  <div class="row">
-                  <div class="col-md-6 col-lg-6 my-3">
-                      <button type="submit" class="btn_login fs-5">Acceder</button>
-                  </div>
-                  <div class="col-md-6 col-lg-6 mt-3">
-                      <p>¿No te registraste?<a href="/registro_admin/" class="text_regist ms-1 text-decoration-none fs-5">Registrar</a></p>
-                  </div>
-                  </div>
-              </form>
-          </div>
-         </div>
+  </div>
+    <section class="container-lg form_login">
+      <div class=" col-s-6 col-m-6 col-l-6">
+        <h1 class="h1_login my-3 pt-3">LOGIN</h1>
+          <form action="/login_admin/" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            {% if message is defined and message %}
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endif %}
+            <div class="row">
+              <div class="col-s-7 col-m-7 col-l-7 mb-1 input_login">
+                <label for="email" class="form-label">Email:</label>
+                <input type="text" class="form-control" name="email" id="email">
+              </div>
+              <div class="col-s-7 col-m-7 col-l-7 mb-1 input_login">
+                <label for="password" class="form-label">Contraseña:</label>
+                <input type="password" class="form-control" name="password" id="password">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-s-6 col-m-6 col-l-6 my-3">
+                <button type="submit" class="btn_login fs-5">Acceder</button>
+              </div>
+              <div class="col-s-6 col-m-6 col-l-6">
+                <p>¿No te registraste?<a href="/registro_admin/" class="text_regist ms-1 text-decoration-none fs-5">Registrar</a></p>
+              </div>
+            </div>
+          </form>
       </div>
-  </div>  
+    </section>  
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">

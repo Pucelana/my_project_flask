@@ -4,40 +4,29 @@
   }*/
   .img_login{
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/static/img2/loguearse.jpg");
-    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     background-attachment: fixed;
-    background-size: cover;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-  }
-  @media only screen and (max-width: 768px){
-    .img_login{
-      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/static/img2/loguearse.jpg");
-      width: 100%;
-    }
   }
   .form_login{
-    min-height: 400px;
-    width: 60%;
     border: 0.5px solid #999;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(7px);
+    /*flex-direction: column;*/
+    position: flex;
+    overflow: hidden;
+    color: #ffffff;
+    margin-top: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    backdrop-filter: blur(7px);
-    position: absolute;
-    overflow: hidden;
-    color: white;
-    margin-top: 20px;
-    margin-left: 20%;
   }
   .h1_login{
     color: white;
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
+    text-align: center;
   }
   .form_login:hover .h1_login{
     color: #111;
@@ -61,7 +50,7 @@
   .form_login:hover::after{
     top: 0;
     left: 0;
-    height: 130px;
+    height: 110px;
     width: 100%;
     background: white;
     border-bottom-left-radius: 50% 50%;
@@ -69,11 +58,10 @@
     transition: 0.5s;
   }
   .input_login{
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     position: relative;
-    margin: 5px 0;
   }
   .input_login input{
     width: 100%;
@@ -110,5 +98,5 @@
     font-weight: bold;
   }
   .login_migas{
-    margin-top: -600px;
+    margin-top: 2px;
   }/* Fin paginas de registro */

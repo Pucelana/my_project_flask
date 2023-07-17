@@ -12,12 +12,12 @@
 <div class="container-lg my-3">
   <div class="row">
    {% for post in posts %}
-   <div class="col-lg-4">
+   <div class="col-l-4">
    <div class="card card_post_usu mb-3">
      <div class="card_bordes">
        <h5 class="text-center">{{ post[2] }}</h5>
      </div>
-     <div class="col-md-5 mt-1"> 
+     <div class="col-m-5"> 
       <h6 class="ps-2">Fecha: <strong>{{ post[5] }}</strong></h6>
     </div>
      <div class="card-body">
@@ -26,10 +26,10 @@
      </div>
      <div class="card_bordes">
       <div class="row d-flex justify-content-center">
-        <div class="col-md-4">
-          <button class="btn btn-success btn-sm"><a href="/comentarios_usu/" class="text-white text-decoration-none">Comentarios</a></button>
+        <div class="col-m-5">
+          <button type="submit" class="btn-dialogos px-4 border-0"><a href="/comentarios_usu/" class="text-decoration-none text-white"><img src="/static/iconos/dialogos.png" class="dialogos" alt="dialogos"></a></button>
         </div>
-        <div class="col-md-4">
+        <div class="col-m-5">
           <button onclick="crearComentarios()" class="btn btn-primary btn-sm">Responder</button>
         </div>
       </div>

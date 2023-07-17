@@ -13,28 +13,28 @@
     <div class="card-body align-items-center">
       <form action="/admin/guardar" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-          <div class="row  mb-2 pt-2">
-            <div class="col-2">
+          <div class="row mb-2 pt-2">
+            <div class="col-xs-4 col-s-4 col-m-4 col-l-2">
               <label for="producto">Producto</label>
               <input type="text" name="producto" id="producto" class="form-control">
             </div>
-            <div class="col-2">
+            <div class="col-xs-4 col-s-4 col-m-4 col-l-2">
               <label for="imagen">Imágen</label>
               <input type="file" name="imagen" id="imagen" class="form-control">
             </div>
-            <div class="col-3">
+            <div class="col-xs-4 col-s-4 col-m-4 col-l-3">
               <label for="url">URL Descarga</label>
               <input type="text" name="url" id="url" class="form-control">
             </div>
-            <div class="col-2">
+            <div class="col-xs-4 col-s-4 col-m-4 col-l-2">
               <label for="genero">Género</label>
               <input type="text" class="form-control" name="genero" id="genero">
             </div>
-            <div class="col-2">
+            <div class="col-xs-4 col-s-4 col-m-4 col-l-2">
               <label for="descrip">Descripción</label>
               <textarea class="form-control" name="descrip" id="descrip" style="height: 30px;"></textarea>
             </div>
-            <div class="col-1">
+            <div class="col-xs-4 col-s-4 col-m-4 col-l-1">
               <button type="submit" class="btn btn-primary mb-3 mt-4">Añadir</button>
             </div>
           </div>
@@ -73,7 +73,8 @@
                 <form action="/admin/borrar" method="POST">
                   <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                   <input type="hidden" name="id" id="id" value="{{ p.id_productos }}">
-                  <button type="submit" class="btn btn-danger">Eliminar</button>
+                  <button type="submit" class="border-0 bg-white"><img src="static/iconos/papelera.png" class="papelera mb-5" alt="papelera"></button>
+                  
                 </form>
               </td>
             </tr>

@@ -1,0 +1,22 @@
+.papelera{
+    width: 35px;
+    height: 35px;
+    filter: contrast(20%) sepia(1) hue-rotate(315deg) saturate(3000%);
+}
+.papelera:hover{
+    filter: contrast(20%) grayscale(0%) hue-rotate(0deg) saturate(0%);
+}
+.btn-dialogos{
+    background-color: #cdffe2;
+}
+.dialogos{
+    width: 35px;
+    height: 35px;
+    filter: contrast(20%) sepia(1) hue-rotate(100deg) saturate(500%);
+}
+.dialogos:hover{
+    width: 35px;
+    height: 35px;
+    filter: contrast(20%) sepia(1) hue-rotate(100deg) saturate(3000%);
+}
+

@@ -34,10 +34,15 @@ def get_connection():
     conexion = connect(host=host, port=port, dbname=dbname, user=user, password=password)
     return conexion
 
+# Index de inicio de sitio
+@app.route("/")
+def index():
+    return render_template("sitio/index.html")
+
 # Home de inicio de sitio
-@app.route( "/" ) 
+"""@app.route( "/" ) 
 def  home_sitio(): 
-  return  render_template('sitio/home_sitio.html')
+  return  render_template('sitio/home_sitio.html')"""
 
 # Registro de Administradores
 @app.route('/registro_admin/', methods=['GET','POST'])
@@ -381,6 +386,41 @@ def logout():
     session.pop['email',None]
     message = 'Sesión cerrada con exito!!!'
     return render_template('sitio/home.html')
+
+# Ruta de los blog
+@app.route('/blog_admin/')
+def blog_admin():
+    admin = session['admin']
+    conexion = get_connection()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM blog_admin WHERE administrador=%s",[admin])
+    blogs = cursor.fetchall()
+    conexion.commit()
+    insertObjects = []
+    columnName = [column[0] for column in cursor.description]
+    for record in blogs:
+        insertObjects.append(dict(zip(columnName, record)))
+    cursor.close()
+    return render_template('admin/blog_admin.html', blogs=insertObjects)
+
+# Creación del blog
+@app.route('/crear_blog_admin/', methods=['GET','POST'])
+def crear_blog_admin():
+    admin = session['admin']
+    titulo = request.form['titulo_blog']
+    contenido = request.form['contenido_blog']
+    imagen = request.files['img_blog']
+    fuente = request.form['fuente_blog']
+    fondo_color = request.form['fondo_blog']
+    texto_color = request.form['texto_blog']
+    if imagen and allowed_file(imagen.filename):
+        filename = secure_filename(imagen.filename)
+        imagen.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    conexion = get_connection()
+    cursor = conexion.cursor()
+    cursor.execute("INSERT INTO blog_admin(administrador,titulo,contenido,imagen,fuente_letra,color_fondo,color_texto) VALUES (%s,%s,%s,%s,%s,%s,%s)",(admin, titulo, contenido, filename, fuente, fondo_color,texto_color))
+    conexion.commit()
+    return redirect(url_for('blog_admin'))
 
 
   

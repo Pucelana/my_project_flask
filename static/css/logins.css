@@ -13,7 +13,7 @@
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(7px);
-    /*flex-direction: column;*/
+    flex-direction: column;
     position: flex;
     overflow: hidden;
     color: #ffffff;
@@ -99,4 +99,4 @@
   }
   .login_migas{
     margin-top: 2px;
-  }/* Fin paginas de registro */
+  }/* Fin paginas de login */

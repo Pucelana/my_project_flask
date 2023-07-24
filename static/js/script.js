@@ -1,9 +1,13 @@
+function mostrarCreacionBlog(){
+  document.getElementById('form_blog_admin').style.display='block';
+}
 function mostrarFormulario(){
     document.getElementById('form_post_admin').style.display='block';
 }
 function crearComentarios(){
     document.getElementById('form_comentarios').style.display='block';
 }
+
 
  /* Para que el texto no aparezca entero y se pueda usar leer mas */
  var comments = document.getElementsByClassName('card_coment');

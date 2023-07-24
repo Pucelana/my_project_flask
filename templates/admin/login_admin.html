@@ -21,8 +21,8 @@
   </nav>
   </div>
     <section class="container-lg form_login">
-      <div class=" col-s-6 col-m-6 col-l-6">
-        <h1 class="h1_login my-3 pt-3">LOGIN</h1>
+      <h1 class="h1_login my-3 pt-3">LOGIN</h1>
+        <div class="col-s-6 col-m-6 col-l-6">
           <form action="/login_admin/" method="POST">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             {% if message is defined and message %}
@@ -50,7 +50,7 @@
               </div>
             </div>
           </form>
-      </div>
+        </div>
     </section>  
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

@@ -1,0 +1,96 @@
+{% extends 'admin/base.html' %}
+{% block titulo %} Posts {% endblock %}
+{% block contenido %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb my-2 mx-4">
+      <li class="breadcrumb-item"><a href="/admin" class="text-success text-decoration-none fw-bold">Productos</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Mi blog</li>
+    </ol>
+  </nav>
+<div class="d-flex justify-content-center mb-4">
+<button onclick="mostrarCreacionBlog()" class="btn btn-success text-center fs-3">Crear mi blog</button>
+</div>
+<!-- Creación del formulario para crear el blog -->
+<div class="col-l-8 offset-2" id="form_blog_admin">
+    <div class="card">
+      <form method="POST" action="/crear_blog_admin/" enctype="multipart/form-data">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <div class="card-header">
+          <h5 class="text-center text-secondary"><strong class="text-dark">{{ session.admin }}</strong></h5>
+        </div>
+        <div class="row"> 
+        <div class="col-l-5 text-center">
+        <input type="file" name="img_blog" id="photo-input">
+        </div>
+        <div class="col-l-3 text-center">
+        <select id="font-select" name="fuente_blog">
+          <option value="">Seleccionar estilo de fuente</option>
+          <option value="Arial">Arial</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Verdana">Verdana</option>
+        </select>
+        </div>
+        <div class="col-l-2 text-center">
+        <input type="color" id="background-color-input" name="fondo_blog" value="#ffffff"><span> fondo</span>
+        </div>
+        <div class="col-l-2 text-center">
+        <input type="color" id="text-color-input" name="texto_blog" value="#000000"><span> texto</span>
+        </div>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+              <label for="titulo_blog" class="form-label">Título:</label>
+              <input type="text" name="titulo_blog" id="titulo_blog" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="contenido_blog" class="form-label">Contenido:</label>
+                <textarea name="contenido_blog" id="contenido_blog" class="form-control" style="height: 320px;"></textarea>
+            </div>
+
+        </div>
+        <div class="card-footer">
+          <div class="row d-flex justify-content-center">
+            <div class="col-l-4">
+              <button type="submit" class="btn btn-info text-white">Guardar Blog</button>
+            </div> 
+            <div class="col-l-4">
+              <button type="submit" class="btn btn-secondary"><a href="" class="text-decoration-none text-white">Volver</a></button>
+            </div>
+          </div> 
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Creación la visibilidad del post creado -->
+  <div class="container-lg my-3">
+    <div class="row">
+     {% for blog in blogs %}
+     <div class="col-l-12">
+     <div class="mb-3">
+       <div class="">
+         <h5 class="text-center">{{ session.admin }}</h5>
+       </div>
+       <div class="">
+         <h5 class="fw-bold text-center">{{ blog.titulo }}</h5>
+         <textarea class="form-control border border-0" style="height: 120px;" readonly>{{ blog.contenido }}</textarea>
+       </div>
+       <div class="">
+         <div class="row">
+           <div class="col-l-7 text-center">
+            <img src="/img/{{ blog.imagen}}" class="img-fluid" alt="">
+           </div>
+           <div class="col-l-2 text-center">
+             <button type="submit" id="btn-edit{{ blog.id_blog }}" class="border-0 card_bordes" data-bs-toggle="modal" data-bs-target="#modal{{ blog.id_blog }}"><img src="/static/iconos/editar.png" class="editar"><p class="p_editar">Editar</p></button>
+           </div>
+           <!--<div class="col-l-2 text-center">
+             <button type="submit" class="border-0 card_bordes"><a href="#" class="text-decoration-none text-white"><img src="/static/iconos/papelera.png" class="papelera"><p class="p_papelera">Borrar</p></a></button>
+           </div>-->
+         </div>
+       </div>
+     </div>
+     </div>
+     {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

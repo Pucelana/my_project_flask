@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <!-- CSS -->
+  <link href="/static/css/estilo.css" rel="stylesheet" type="text/css">
+</head>
+<body id="cabecera">
+    <div class="tm-container mx-auto">
+        <section class="tm-section tm-section-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-s-12">
+                        <nav class="nav justify-content-end nav_cabecera">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white fs-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Iniciar Sesión
+                                </a>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item fs-5" href="/login_admin/">Administrador</a></li>
+                                  <li><a class="dropdown-item fs-5" href="/login_usu/">Usuario</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white fs-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Registrate
+                                </a>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item fs-5" href="/registro_admin/">Administrador</a></li>
+                                  <li><a class="dropdown-item fs-5" href="/registro_usu/">Usuario</a></li>
+                                </ul>
+                            </li>
+                        </nav>
+                    </div>
+                    <div class="col-s-12">
+                        <div class="tm-bg-circle-white1 tm-flex-center-v">
+                            <header class="text-center">
+                                <h1 class="tm-site-title"></h1>
+                                <p class="tm-site-subtitle"></p>
+                            </header>
+                            <p></p>
+                            <p class="text-center mt-4 mb-0">
+                               <!--<a data-scroll href="#tm-section-2" class="btn tm-btn-secondary"></a>-->
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-s-12">
+                        <h1 class="text-white h1_cabecera">Uniendo corazones locales, comerciando con pasión</h1>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="tm-section-2" class="tm-section pt-2 pb-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-l-6 tm-flex-center-v tm-text-container tm-section-left">
+                        <h2 class="tm-color-secondary mb-4">¿Quienés somos?</h2>
+                        <p class="mb-4">Nullam erat dolor, ullamcorper et nisi nec, porta portitor nisi. Quisque lobortis sem ut facilisis
+                            mattis. Sed eu pellentesque sapien, a finibus eros. Nunc ut ultricies augue.</p>
+                        <p class="mb-5">Mauris sagittis dui arcu, sed luctus metus faucibus nec. Sed vulputate ipsum massa, ut dapibus purus
+                            volutpat vel. Interdum et malesuada fames ac ante.</p>
+                        <p class="text-right mb-0">
+                            <a href="#tm-section-3" class="btn tm-btn-secondary">Continue...</a>
+                        </p>
+                    </div>
+                    <div class="d-none d-lg-block col-l-6 tm-circle-img-container">
+                        <img src="/static/img2/Artesania.jpg" alt="Artesania" class="rounded-circle tm-circle-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="tm-section-3" class="tm-section tm-section-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 tm-section-2-right">
+                        <div class="tm-bg-circle-white2 tm-bg-circle-pad-2 tm-flex-center-v">
+                            <header>
+                                <h2 class="tm-color-primary">Duis vel vaius eros</h2>
+                            </header>
+                            <p>In hac habitasse platea dictumst. Ut tristique, purus vitae egestas hendrerit, tellus elit luctus
+                                lacus
+                            </p>
+                            <ul class="dashed">
+                                <li>Quisque lobortis sem ut facilisis mattis</li>
+                                <li>Sed eu pellentesque sapien</li>
+                                <li>Mauris sagittis dui arcu</li>
+                                <li>Sed luctus metus faucibus nec</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="tm-section pt-2 pb-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 tm-flex-center-v tm-section-left">
+                        <form action="#" class="tm-contact-form" method="POST">
+                            <div class="form-group mb-4">
+                                <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name" required/>
+                            </div>
+                            <div class="form-group mb-4">
+                                <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email" required/>
+                            </div>
+                            <div class="form-group mb-5">
+                                <textarea rows="5" id="contact_message" name="contact_message" class="form-control" placeholder="Message..." required></textarea>
+                            </div>
+                            <div class="form-group mb-0 text-right">
+                                <button type="submit" class="btn tm-btn-primary tm-send-btn">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 tm-circle-img-container tm-contact-right">
+                        <img src="img/img-02.jpg" alt="Image" class="rounded-circle tm-circle-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p class="small mb-4 tm-footer-text">Copyright &copy; 2018 Company Name 
+                    
+                    | Design: <a rel="nofollow" href="https://www.tooplate.com" class="tm-footer-link">Tooplate</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+  <!-- JS -->
+  <link href="/static/js/script.js">
+</body>
+
+</html>

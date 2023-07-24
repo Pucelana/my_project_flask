@@ -49,3 +49,14 @@ CREATE TABLE comentarios_usu(
     usuario VARCHAR(255) NOT NULL,
     created_at DATE NOT NULL DEFAULT CURRENT_DATE
 );
+""" Tabla para la creación de los blog """
+CREATE TABLE blog_admin(
+    id_blog SERIAL PRIMARY KEY NOT NULL,
+    administrador VARCHAR(255) NOT NULL,
+    titulo TEXT NOT NULL,
+    contenido TEXT NOT NULL,
+    imagen TEXT NOT NULL,
+    fuente_letra VARCHAR(50),
+    color_fondo VARCHAR(50),
+    color_texto VARCHAR(50)
+);

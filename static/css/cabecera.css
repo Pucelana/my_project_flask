@@ -32,13 +32,13 @@
   
   .tm-section-1 {
     height: 750px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img2/negocio.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../img2/negocio.jpg);
     background-size: cover;
     -webkit-clip-path: polygon(0px 0px, 100% 0px, 100% 84%, 0px 100%);
     clip-path: polygon(0px 0px, 100% 0px, 100% 84%, 0px 100%);
     /* background-position: center -95px; */
     background-repeat: no-repeat;
-    padding-top: 75px;
+    padding-top: 20px;
   }
   
   .tm-section-3 {
@@ -79,16 +79,17 @@
     background-color: #44cbf1;
   }
   .tm-bg-circle-white1 {
-    background-color: rgb(255, 254, 254);
+    /*background-color: rgb(255, 254, 254);*/
     color: #6c6c6c;
-    background-image: url(../img2/logo-comer.png);
+    background-image: url(../img2/logo-comercio2.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center center;
-    padding: 65px 60px 50px 60px;
-    border-radius: 50%;
-    width: 300px;
-    height: 300px;
+    background-attachment: fixed;
+    /*padding: 75px 70px 60px 70px;
+    border-radius: 50%;*/
+    width: 700px;
+    height: 400px;
   }
   .tm-bg-circle-white2 {
     background-color: rgb(255, 254, 254);

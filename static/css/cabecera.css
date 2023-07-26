@@ -6,15 +6,15 @@
     overflow-x: hidden;
 }
 .nav_cabecera{
-    font-family: "Open Sans";
+    font-family: cursive;
 }
 .dropdown-menu{
     background-color: #eeeeee;
 }
 .h1_cabecera{
-    font-family: Georgia, Times, 'Times New Roman', serif ;
+    font-family: cursive;
     text-align: center;
-    font-size: 24px;
+    font-size: 28px;
 }
 .tm-container {
     background-color: white;
@@ -31,8 +31,8 @@
     margin-bottom: 30px;
   }
   .tm-section-1 {
-    height: 900px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../img2/negocio.jpg);
+    height: 800px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../img2/negocio1.jpg);
     background-size: cover;
     -webkit-clip-path: polygon(0px 0px, 100% 0px, 100% 84%, 0px 100%);
     clip-path: polygon(0px 0px, 100% 0px, 100% 84%, 0px 100%);
@@ -54,10 +54,12 @@
   
   .tm-color-primary {
     color: #cc0064;
+    font-family: cursive;
   }
-  
   .tm-color-secondary {
-    color: #0095bf;
+    color: #007d41;
+    font-size: 38px;
+    font-family: cursive;
   }
   
   .tm-btn-primary {
@@ -72,12 +74,14 @@
   
   .tm-btn-secondary {
     color: white;
-    background-color: #0095bf;
+    background-color: #7ed957;
   }
-  .tm-btn-secondary:hover,
-  .tm-btn-secondary:focus {
-    background-color: #44cbf1;
+  .tm-btn-secondary:hover{
+    color: #7ed957;
+    background-color: #ffffff;
+    border-radius: 4px solid #7ed957;
   }
+  
   /*.tm-bg-circle-white1 img{
     background-color: rgb(255, 254, 254);
     color: #6c6c6c;
@@ -113,7 +117,6 @@
     line-height: 2;
     font-weight: 300;
   }
-  
   ul {
     margin: 0;
   }
@@ -128,7 +131,6 @@
     margin-right: 5px;
     text-indent: -5px;
   }
-  
   .btn {
     padding: 10px 30px;
     font-size: 1.15rem;

@@ -14,6 +14,7 @@
 .h1_cabecera{
     font-family: Georgia, Times, 'Times New Roman', serif ;
     text-align: center;
+    font-size: 24px;
 }
 .tm-container {
     background-color: white;
@@ -29,14 +30,13 @@
     font-size: 1.2rem;
     margin-bottom: 30px;
   }
-  
   .tm-section-1 {
-    height: 750px;
+    height: 900px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../img2/negocio.jpg);
     background-size: cover;
     -webkit-clip-path: polygon(0px 0px, 100% 0px, 100% 84%, 0px 100%);
     clip-path: polygon(0px 0px, 100% 0px, 100% 84%, 0px 100%);
-    /* background-position: center -95px; */
+    /*background-position: center -95px;*/
     background-repeat: no-repeat;
     padding-top: 20px;
   }
@@ -78,17 +78,23 @@
   .tm-btn-secondary:focus {
     background-color: #44cbf1;
   }
-  .tm-bg-circle-white1 {
-    /*background-color: rgb(255, 254, 254);*/
+  /*.tm-bg-circle-white1 img{
+    background-color: rgb(255, 254, 254);
     color: #6c6c6c;
     background-image: url(../img2/logo-comercio2.png);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    /*padding: 75px 70px 60px 70px;
-    border-radius: 50%;*/
-    width: 700px;
+    padding: 75px 70px 60px 70px;
+    border-radius: 50%;
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+  }*/
+  .tm-bg-circle-white1{
     height: 400px;
   }
   .tm-bg-circle-white2 {
@@ -244,10 +250,10 @@
   
   @media (max-width: 576px) {
     .tm-bg-circle-white1 {
-      border-radius: 100px;
+      /*border-radius: 100px;*/
       width: 100%;
-      height: auto;
-      padding: 50px;
+      /*height: auto;*/
+      padding: 0px;
     }
     .tm-bg-circle-white2 {
         border-radius: 100px;

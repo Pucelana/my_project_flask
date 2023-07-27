@@ -33,7 +33,7 @@
   .tm-section-1 {
     height: 800px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../img2/negocio1.jpg);
-    background-size: cover;
+    background-size: 100% 100%;
     -webkit-clip-path: polygon(0px 0px, 100% 0px, 100% 84%, 0px 100%);
     clip-path: polygon(0px 0px, 100% 0px, 100% 84%, 0px 100%);
     /*background-position: center -95px;*/
@@ -44,7 +44,7 @@
   .tm-section-3 {
     height: 790px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img2/open.jpg);
-    background-size: cover;
+    background-size: 100% 100%;
     -webkit-clip-path: polygon(0px 0px, 100% 14%, 100% 86%, 0px 100%);
     clip-path: polygon(0px 0px, 100% 14%, 100% 86%, 0px 100%);
     background-repeat: no-repeat;
@@ -54,10 +54,11 @@
   .tm-section-5 {
     /*background-color: #eee;*/
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img2/questions1.jpg);
-    background-size: cover;
+    background-size: 100% 100%;
     -webkit-clip-path: polygon(0px 0px, 100% 14%, 100% 100%, 0px 100%);
     clip-path: polygon(0px 0px, 100% 14%, 100% 100%, 0px 100%);
     background-repeat: no-repeat;
+    background-position: center center;
     display: flex;
     align-items: center;
   }

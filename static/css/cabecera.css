@@ -32,7 +32,7 @@
   }
   .tm-section-1 {
     height: 800px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img2/negocio1.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img2/negocio1.jpg);
     background-size: cover;
     -webkit-clip-path: polygon(0px 0px, 100% 0px, 100% 84%, 0px 100%);
     clip-path: polygon(0px 0px, 100% 0px, 100% 84%, 0px 100%);

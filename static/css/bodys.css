@@ -8,11 +8,35 @@
     background:  #e0ffed; 
 }
 #body_admin_home{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/img2/pexels-fallon-michael-3551711.jpg"); 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/img2/welcome.jpg"); 
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: cover;
-    min-height: 574px; 
+    background-size: 100% 100%;
+    height: 690px;
+}
+.logo-home-admin{
+    text-align: center;
+}
+.logo-home-admin img{
+    margin-top: -100px;
+}
+@media (max-width: 600px){
+    .logo-home-admin img{
+        margin-top: -130px;
+    }
+}
+.nav-link-2{
+    text-decoration: none;
+    margin-right: 10px;
+    color: #7ed957;
+    font-weight: bold;
+    font-size: 18px;
+}
+.nav-link-2:hover{
+    color: #007d41;
+}
+.sesion-admin{
+    color: #7ed957;
 }
 .body_login{
     background-color: #e9f9ff;

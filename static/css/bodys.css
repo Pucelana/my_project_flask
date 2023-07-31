@@ -8,12 +8,12 @@
     background:  #e0ffed; 
 }
 #body_admin_home{
-    background-color: rgb(230, 255, 230);
-    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)),url("/static/img2/welcome_corto1.png"); 
+    background-color: rgb(116, 139, 116);
+    background-image: url("/static/img2/welcome_corto1.png"); 
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: bottom;
     background-size: contain;
-    height: 100%;
+    height: 677px;
 }
 /*.home-admin-header{
     margin-top: 100px;

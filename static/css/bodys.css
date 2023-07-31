@@ -13,7 +13,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    height: 678px;
+    min-height: 700px;
 }
 .nav-link-2{
     text-decoration: none;

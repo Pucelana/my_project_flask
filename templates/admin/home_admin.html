@@ -12,14 +12,62 @@
   <link href="{{ url_for('static', filename='css/estilo.css') }}" rel="stylesheet" type="text/css">   
 </head>
 <body id="body_admin_home">
-  <header class="bg-transparent">
-    <section class="container-lg ">
+  <header class="container-lg">
+    <section class="row mt-3">
+      <div class="col-xs-4 col-s-4 col-m-4 col-l-4 col-xl-4 text-start">
+          <img src="/static/img2/logo-comercio3bis.png" class="img-fluid" style="width: 200px; height: 75px;" alt="Comercio-Comarcal">
+      </div>
+      <div class="col-xs-8 col-s-8 col-m-8 col-l-8 col-xl-8 mt-3 text-end">
+        <h5 class="text-secondary"><strong class="sesion-admin fs-3">{{ session.admin }}</strong></h5>
+      </div>
+    </section>
+</header> <!-- fin primera cabecera -->
+<nav class="container-fluid d-flex justify-content-lg-center justify-content-md-end">
+    <section class="navbar navbar-expand-md navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link nav-link-2" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-link-2" href="/admin">Productos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-link-2" href="#">Posts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-link-2">Blogs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-link-2" href="#">Landing-Page</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-link-2" href="#">Sitio Web</a>
+              </li>
+              <li class="nav-item">
+                
+              </li>
+            </ul>
+          </div>
+        </div>
+    </section>
+</nav> <!-- fin menu navegacion -->
+    <!--<section class="container-fluid">
       <div class="row">
-       <nav class="navbar navbar-expand-sm d-flex justify-content-s-center navbar-dark">
-        <!--<div class="col-xs-12 col-s-12 col-m-1 col-l-2">
+        <div class="col-xs-6 col-s-6 col-m-6 col-l-6">
           <img src="/static/img2/logo-comercio2.png" class="img-fluid">
-        </div>-->
-        <div class="col-xs-8 col-s-8 col-m-9 col-l-9">
+        </div>
+        <div class="col-xs-6 col-s-6 col-m-6 col-l-6">
+          <h5 class="text-secondary"><strong class="sesion-admin fs-3">{{ session.admin }}</strong></h5> 
+       </div>
+      </div>
+       <nav class="navbar navbar-expand-sm d-flex justify-content-s-center navbar-dark">
+        <div class="col-xs-12 col-s-12 col-m-12 col-l-12 shadow">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
@@ -49,16 +97,11 @@
               </ul>
             </div>
           </div>
-          <div class="col-xs-4 col-s-4 col-m-3 col-l-3 justify-content-end">
-             <h5 class="text-secondary"><strong class="sesion-admin fs-3">{{ session.admin }}</strong></h5> 
-          </div>
        </nav>
-      </div>
-    </section>
-  </header>
-  <section class="logo-home-admin">
-    <img src="/static/img2/logo-comercio2.png" class="">
-  </section>
+    </section>-->
+  <!--<section class="logo-home-admin">
+    <img src="/static/img2/logo-comercio2.png" class="img-fluid">
+  </section>-->
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">

@@ -1,17 +1,17 @@
-.h1_admin_home{
+/*.h1_admin_home{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin-top: 120px;
     font-size: 60px;
     color: #64ce64;
-}
-.btn_admin_home{
+}*/
+/*.btn_admin_home{
     margin-top: 150px;
     display: flex;
     justify-content: center;
-}
+}*/
 .text_admin_home{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 65px;
+    font-size: 60px;
     color: #48d148;
 }
 .nav-admin{
@@ -19,6 +19,7 @@
 }
 .nav-a{
     color: #3fad6d;
+    
 }
 .nav-a:hover{
     color: #ac9579;

@@ -134,13 +134,13 @@
     margin-right: 5px;
     text-indent: -5px;
   }
-  .btn {
+  .btn-index {
     padding: 10px 30px;
     font-size: 1.15rem;
     font-weight: 300;
     border-radius: 8px;
   }
-  a.btn:hover {
+  a.btn-index:hover {
     color: white;
     text-decoration: none;
   }
@@ -180,7 +180,7 @@
     justify-content: center;
     align-items: center;
   }
-  .form-control {
+  .form-control-1 {
     text-align: center;
     width: 95%;
     background: transparent;
@@ -190,7 +190,7 @@
     outline: none;
     margin: 20px;
   }
-  .form-control:focus {
+  .form-control-1:focus {
     box-shadow: none;
     border-color: #7ed957;
     border-width: 3px;

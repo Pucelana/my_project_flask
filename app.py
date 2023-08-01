@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 from flask_wtf.csrf import CSRFProtect
 import os
 
-UPLOAD_FOLDER = 'static/img/'
+UPLOAD_FOLDER = '/static/img/'
 ALLOWED_EXTENSIONS = {'txt','pdf','png','jpg','jpeg','gif'}
 
 app = Flask(__name__)

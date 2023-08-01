@@ -13,7 +13,7 @@
 <div class="col_galeria my-4">
   {% for img in imagenes %}
   <div class="card card_galeria carousel-item" id="">
-    <span><img class="card-img-top img_gale" src="/img/{{img[4]}}" alt="Title"></span>
+    <span><img class="card-img-top img_gale" src="/static/img/{{ img[4] }}" alt="Title"></span>
   <div class="contenido_card">
     <h5 class="card-title">{{ img[3] }}</h5>
     <h6 class="text-secondary">Usuario: <a href="mailto:{{ img[2] }}" class="text-decoration-none"><strong class="">{{ img[2] }}</strong></a></h6>

@@ -6,7 +6,7 @@
   }
     .col_galeria{
       position: relative;
-      width: 1400px;
+      width: auto;
       display: flex;
       justify-content: center;
       align-items: center;
